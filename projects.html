@@ -4,6 +4,76 @@
     <meta charset="UTF-8">
     <title>Andrew O. McLaughlin, PhD – Projects</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Case study card styling */
+        .case-study-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background-color: #fafafa;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .case-study-card h2 {
+            margin-top: 0;
+            color: #0074D9;
+        }
+        .case-study-card img {
+            display: block;
+            margin: 1rem auto;
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .case-study-card h3 {
+            margin-top: 1.2rem;
+            font-size: 1.2rem;
+            color: #111;
+        }
+        .case-study-card ul {
+            margin: 0.5rem 0 1rem 1.2rem;
+            list-style: disc;
+        }
+
+        /* Read more toggle */
+        .read-more-content {
+            display: none;
+            margin-top: 1rem;
+        }
+        .read-more-toggle {
+            display: inline-block;
+            margin-top: 1rem;
+            cursor: pointer;
+            color: #0074D9;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Projects nav */
+        .projects-nav {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f7f9fb;
+            border-left: 4px solid #0074D9;
+        }
+        .projects-nav ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+        }
+        .projects-nav a {
+            color: #0074D9;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s;
+        }
+        .projects-nav a:hover {
+            border-bottom: 1px solid #0074D9;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,23 +89,89 @@
     </header>
     <main>
         <section class="projects">
-            <h1>Projects (Coming Soon)</h1>
+            <h1>Projects</h1>
         </section>
+
+        <!-- Projects Navigation -->
+        <nav class="projects-nav">
+            <ul>
+                <li><a href="#cdc-data">CDC Data Modernization</a></li>
+                <li><a href="#cdc-clean">CDC Clean Slate</a></li>
+                <li><a href="#cdc-tobacco">CDC Tobacco Redesign</a></li>
+                <li><a href="#wi-dhs">WI Dept of Health COVID Workflow</a></li>
+                <li><a href="#wi-taskforce">WI COVID Task Force</a></li>
+                <li><a href="#dissertation">Dissertation</a></li>
+                <li><a href="#bodycam">Body-worn Camera Research</a></li>
+                <li><a href="#uo-teaching">Teaching at UO</a></li>
+                <li><a href="#workforce">Workforce Development</a></li>
+                <li><a href="#soldiers-home">A Soldier’s Home Documentary</a></li>
+                <li><a href="#starworlds">Star Worlds Arcade Documentary</a></li>
+            </ul>
+        </nav>
+
         <section>
-            <h2>CDC Data Moderization Initiative</h2>
-            <h2>CDC Clean Slate Initiative</h2>
-            <h2>WI Dept of Health COVID-19 Publication Workflow</h2>
-            <h2>State of Wisconsin COVID-19 Emergency Management Task Force</h2>
-            <h2>Dissertation -- Representation and Exploitation of War and Conflict: Publicly Appropriable Media as Low Hanging Fruit</h2>
-            <h2>Qualitative Research Project: Challenges of Obtaining Body-worn Cameras in Eugene, OR</h2>
-            <h2>Teaching in the School of Journalism and Communication and Dept. of Film Studies at UO</h2>
-            <h2>Uping the Workforce Development Game by Prepaing Clients for the Digital Job Search</h2>
-            <h2>A Soldier's Home Auto-ethnograohic Documentary Thesis</h2>
-            <h2>Documentary Field Work: Star Worlds Arcade Documentary</h2>
+            <h2 id="cdc-data">CDC Data Moderization Initiative</h2>
+
+            <h2 id="cdc-clean">CDC Clean Slate Initiative</h2>
+
+            <!-- Case Study Card -->
+            <div class="case-study-card" id="cdc-tobacco">
+                <h2>CDC Tobacco Website Redesign for the Office on Smoking and Health</h2>
+                <img src="assets/side-by-side-comparison.png" alt="CDC Tobacco website before and after comparison">
+
+                <p>
+                    The CDC Tobacco website had grown into a comprehensive but content-heavy resource. 
+                    As Content Strategist, I led modernization efforts to improve clarity, accessibility, and equity framing.
+                </p>
+
+                <span class="read-more-toggle" onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
+                    Read More
+                </span>
+
+                <div class="read-more-content">
+                    <h3>Problem</h3>
+                    <ul>
+                        <li>Navigation reflected years of additions rather than a unified structure.</li>
+                        <li>Content length and density made scanning difficult for non-experts.</li>
+                        <li>Accessibility standards had evolved since the last redesign.</li>
+                        <li>Health equity and disparities content was not highlighted in line with CDC’s modern framing.</li>
+                    </ul>
+
+                    <h3>Solution</h3>
+                    <ul>
+                        <li>Streamlined navigation aligned to audience needs (public, providers, public health).</li>
+                        <li>Content audit and consolidation to reduce redundancy and simplify pathways.</li>
+                        <li>Visual storytelling and improved readability, with whitespace, infographics, and feature stories.</li>
+                        <li>Accessibility compliance updates, aligning with WCAG 2.1 standards.</li>
+                        <li>Equity-first presentation, elevating disparities and health equity content.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Case Study Card -->
+
+            <h2 id="wi-dhs">WI Dept of Health COVID-19 Publication Workflow</h2>
+            <h2 id="wi-taskforce">State of Wisconsin COVID-19 Emergency Management Task Force</h2>
+            <h2 id="dissertation">Dissertation -- Representation and Exploitation of War and Conflict</h2>
+            <h2 id="bodycam">Qualitative Research Project: Challenges of Obtaining Body-worn Cameras in Eugene, OR</h2>
+            <h2 id="uo-teaching">Teaching in the School of Journalism and Communication and Dept. of Film Studies at UO</h2>
+            <h2 id="workforce">Upping the Workforce Development Game by Preparing Clients for the Digital Job Search</h2>
+            <h2 id="soldiers-home">A Soldier's Home Auto-ethnographic Documentary Thesis</h2>
+            <h2 id="starworlds">Documentary Field Work: Star Worlds Arcade Documentary</h2>
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Andrew O. McLaughlin, PhD</p>
     </footer>
+
+    <!-- JS for smooth toggle -->
+    <script>
+        document.querySelectorAll('.read-more-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                this.textContent = content.style.display === 'block' ? 'Read Less' : 'Read More';
+            });
+        });
+    </script>
 </body>
 </html>
