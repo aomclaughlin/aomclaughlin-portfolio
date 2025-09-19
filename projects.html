@@ -34,20 +34,6 @@
             list-style: disc;
         }
 
-        /* Read more toggle */
-        .read-more-content {
-            display: none;
-            margin-top: 1rem;
-        }
-        .read-more-toggle {
-            display: inline-block;
-            margin-top: 1rem;
-            cursor: pointer;
-            color: #0074D9;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
         /* Projects nav */
         .projects-nav {
             margin: 2rem 0;
@@ -73,11 +59,34 @@
         .projects-nav a:hover {
             border-bottom: 1px solid #0074D9;
         }
+
+        /* Read more (details/summary) */
+        details.read-more {
+            margin-top: 1rem;
+        }
+        details.read-more summary {
+            cursor: pointer;
+            color: #0074D9;
+            font-weight: bold;
+            text-decoration: underline;
+            list-style: none;
+            outline: none;
+        }
+        /* Hide default marker */
+        details.read-more summary::-webkit-details-marker { display: none; }
+        details.read-more[open] summary { text-decoration: none; }
+        .read-more-content { margin-top: 1rem; }
+        /* Keyboard focus hint */
+        details.read-more summary:focus {
+            outline: 2px solid #0074D9;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav>
+        <nav aria-label="Main">
             <a href="index.html">About</a>
             <a href="projects.html" class="active">Projects</a>
             <a href="resume.html">Resume/CV</a>
@@ -87,13 +96,14 @@
             <a href="contact.html">Contact</a>
         </nav>
     </header>
+
     <main>
         <section class="projects">
-            <h1>Projects</h1>
+            <h1>Projects (under construction)</h1>
         </section>
 
         <!-- Projects Navigation -->
-        <nav class="projects-nav">
+        <nav class="projects-nav" aria-label="Projects section navigation">
             <ul>
                 <li><a href="#cdc-data">CDC Data Modernization</a></li>
                 <li><a href="#cdc-clean">CDC Clean Slate</a></li>
@@ -104,74 +114,4 @@
                 <li><a href="#bodycam">Body-worn Camera Research</a></li>
                 <li><a href="#uo-teaching">Teaching at UO</a></li>
                 <li><a href="#workforce">Workforce Development</a></li>
-                <li><a href="#soldiers-home">A Soldier’s Home Documentary</a></li>
-                <li><a href="#starworlds">Star Worlds Arcade Documentary</a></li>
-            </ul>
-        </nav>
-
-        <section>
-            <h2 id="cdc-data">CDC Data Moderization Initiative</h2>
-
-            <h2 id="cdc-clean">CDC Clean Slate Initiative</h2>
-
-            <!-- Case Study Card -->
-            <div class="case-study-card" id="cdc-tobacco">
-                <h2>CDC Tobacco Website Redesign for the Office on Smoking and Health</h2>
-                <img src="assets/side-by-side-comparison.png" alt="CDC Tobacco website before and after comparison">
-
-                <p>
-                    The CDC Tobacco website had grown into a comprehensive but content-heavy resource. 
-                    As Content Strategist, I led modernization efforts to improve clarity, accessibility, and equity framing.
-                </p>
-
-                <span class="read-more-toggle" onclick="this.nextElementSibling.style.display = (this.nextElementSibling.style.display === 'block' ? 'none' : 'block')">
-                    Read More
-                </span>
-
-                <div class="read-more-content">
-                    <h3>Problem</h3>
-                    <ul>
-                        <li>Navigation reflected years of additions rather than a unified structure.</li>
-                        <li>Content length and density made scanning difficult for non-experts.</li>
-                        <li>Accessibility standards had evolved since the last redesign.</li>
-                        <li>Health equity and disparities content was not highlighted in line with CDC’s modern framing.</li>
-                    </ul>
-
-                    <h3>Solution</h3>
-                    <ul>
-                        <li>Streamlined navigation aligned to audience needs (public, providers, public health).</li>
-                        <li>Content audit and consolidation to reduce redundancy and simplify pathways.</li>
-                        <li>Visual storytelling and improved readability, with whitespace, infographics, and feature stories.</li>
-                        <li>Accessibility compliance updates, aligning with WCAG 2.1 standards.</li>
-                        <li>Equity-first presentation, elevating disparities and health equity content.</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Case Study Card -->
-
-            <h2 id="wi-dhs">WI Dept of Health COVID-19 Publication Workflow</h2>
-            <h2 id="wi-taskforce">State of Wisconsin COVID-19 Emergency Management Task Force</h2>
-            <h2 id="dissertation">Dissertation -- Representation and Exploitation of War and Conflict</h2>
-            <h2 id="bodycam">Qualitative Research Project: Challenges of Obtaining Body-worn Cameras in Eugene, OR</h2>
-            <h2 id="uo-teaching">Teaching in the School of Journalism and Communication and Dept. of Film Studies at UO</h2>
-            <h2 id="workforce">Upping the Workforce Development Game by Preparing Clients for the Digital Job Search</h2>
-            <h2 id="soldiers-home">A Soldier's Home Auto-ethnographic Documentary Thesis</h2>
-            <h2 id="starworlds">Documentary Field Work: Star Worlds Arcade Documentary</h2>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Andrew O. McLaughlin, PhD</p>
-    </footer>
-
-    <!-- JS for smooth toggle -->
-    <script>
-        document.querySelectorAll('.read-more-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
-                this.textContent = content.style.display === 'block' ? 'Read Less' : 'Read More';
-            });
-        });
-    </script>
-</body>
-</html>
+                <li><a href="#sold
