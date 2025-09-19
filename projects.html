@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <title>Andrew O. McLaughlin, PhD – Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Use the same global stylesheet so nav matches other pages -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Page-scoped styles (NO header/nav styles here) -->
   <style>
     /* Case study card */
     .case-study-card { border: 1px solid #ddd; border-radius: 10px; padding: 1.25rem; margin: 1.5rem 0; background: #fafafa; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
@@ -33,7 +31,7 @@
 </head>
 <body>
   <header>
-    <!-- Match the About page markup exactly -->
+    <!-- Nav matches About page -->
     <nav>
       <a href="index.html">About</a>
       <a href="projects.html" class="active">Projects</a>
@@ -51,12 +49,13 @@
       <p class="lede">Browse selected projects across federal public health, state government, research, teaching, and documentary work.</p>
     </section>
 
-    <!-- In-page navigation to sections -->
+    <!-- In-page navigation -->
     <nav class="projects-nav" aria-label="Projects section navigation">
       <ul>
         <li><a href="#cdc-data">CDC Data Modernization</a></li>
         <li><a href="#cdc-clean">CDC Clean Slate</a></li>
         <li><a href="#cdc-tobacco">CDC Tobacco Redesign</a></li>
+        <li><a href="#uat-testing">CDC & DHS UAT Testing</a></li>
         <li><a href="#wi-dhs">WI Dept of Health COVID Workflow</a></li>
         <li><a href="#wi-taskforce">WI COVID Task Force</a></li>
         <li><a href="#dissertation">Dissertation</a></li>
@@ -75,7 +74,7 @@
       <h2 id="cdc-clean">CDC Clean Slate Initiative</h2>
       <p>Content strategy and information architecture work to clarify program goals, simplify pathways for priority audiences, and align language with equity-forward guidance.</p>
 
-      <!-- Case Study Card -->
+      <!-- CDC Tobacco Case Study -->
       <div class="case-study-card" id="cdc-tobacco">
         <h2>CDC Tobacco Website Redesign for the Office on Smoking and Health</h2>
         <img src="assets/side-by-side-comparison.png" alt="CDC Tobacco website before-and-after comparison" />
@@ -85,7 +84,6 @@
           As Content Strategist, I led modernization efforts to improve clarity, accessibility, and equity framing.
         </p>
 
-        <!-- Accessible, JS-free expansion -->
         <details class="read-more">
           <summary>Read More</summary>
           <div class="read-more-content">
@@ -96,7 +94,6 @@
               <li>Accessibility standards had evolved since the last redesign.</li>
               <li>Health equity and disparities content was not highlighted in line with CDC’s modern framing.</li>
             </ul>
-
             <h3>Solution</h3>
             <ul>
               <li>Streamlined navigation aligned to audience needs (public, providers, public health).</li>
@@ -105,8 +102,7 @@
               <li>Accessibility compliance updates aligning with WCAG 2.1 standards.</li>
               <li>Equity-first presentation elevating disparities and health equity content.</li>
             </ul>
-
-            <h3>Impact (selected)</h3>
+            <h3>Impact</h3>
             <ul>
               <li>Reduced page depth for top tasks; clearer entrances for priority audiences.</li>
               <li>Improved readability scores and scan-ability across high-traffic pages.</li>
@@ -115,7 +111,45 @@
           </div>
         </details>
       </div>
-      <!-- End Case Study Card -->
+
+      <!-- New UAT Testing Case Study -->
+      <div class="case-study-card" id="uat-testing">
+        <h2>User Acceptance Testing for CDC & DHS Web Applications</h2>
+        <img src="assets/uat-dashboard.png" alt="Screenshot of CDC data dashboard with filters and maps" />
+
+        <p>
+          At CDC and the Wisconsin Department of Health Services, I performed user acceptance testing (UAT) on multiple public health web applications, ensuring data accuracy, usability, and functionality across both public-facing and administrative systems.
+        </p>
+
+        <details class="read-more">
+          <summary>Read More</summary>
+          <div class="read-more-content">
+            <h3>Problem</h3>
+            <ul>
+              <li>Critical public health data systems required validation before release to ensure accuracy and usability.</li>
+              <li>Complex filterable modules, maps, and metadata systems created high risk for mismatches and errors.</li>
+              <li>Large-scale platforms like the STATE System and MCRC served both external users and internal administrators, requiring seamless performance across roles.</li>
+            </ul>
+
+            <h3>Solution</h3>
+            <ul>
+              <li>Tested STATE System commercial tobacco surveillance dashboards to ensure data backend aligned with front-end filters and visualizations.</li>
+              <li>Conducted validation of metadata integrity, ensuring correct labeling and accessibility compliance.</li>
+              <li>Verified interactive data visualizations, including maps, rendered correctly and aligned with expected parameters.</li>
+              <li>Performed UAT on the Media Campaign Resource Center (MCRC), testing both the customer catalog search interface and the admin-side order processing system.</li>
+              <li>Worked with SMEs and developers to log, prioritize, and resolve bugs before production release.</li>
+            </ul>
+
+            <h3>Impact</h3>
+            <ul>
+              <li>Improved reliability of CDC data systems that inform national commercial tobacco surveillance and research.</li>
+              <li>Strengthened user trust in MCRC, the world’s largest anti-commercial tobacco advertising catalog, by ensuring smooth ordering and catalog search experience.</li>
+              <li>Reduced downstream support tickets by resolving issues before launch.</li>
+              <li>Ensured public health practitioners and researchers had accurate, accessible tools to guide data-driven decisions.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
 
       <h2 id="wi-dhs">WI Dept of Health COVID-19 Publication Workflow</h2>
       <p>Defined a structured cross-functional publication workflow with QA checkpoints, accessibility checks, and analytics tagging for state health communications.</p>
