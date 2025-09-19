@@ -1,117 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Andrew O. McLaughlin, PhD – Projects</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        /* Case study card styling */
-        .case-study-card {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            background-color: #fafafa;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .case-study-card h2 {
-            margin-top: 0;
-            color: #0074D9;
-        }
-        .case-study-card img {
-            display: block;
-            margin: 1rem auto;
-            max-width: 100%;
-            border-radius: 6px;
-        }
-        .case-study-card h3 {
-            margin-top: 1.2rem;
-            font-size: 1.2rem;
-            color: #111;
-        }
-        .case-study-card ul {
-            margin: 0.5rem 0 1rem 1.2rem;
-            list-style: disc;
-        }
+  <meta charset="UTF-8" />
+  <title>Andrew O. McLaughlin, PhD – Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-        /* Projects nav */
-        .projects-nav {
-            margin: 2rem 0;
-            padding: 1rem;
-            background: #f7f9fb;
-            border-left: 4px solid #0074D9;
-        }
-        .projects-nav ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem 2rem;
-        }
-        .projects-nav a {
-            color: #0074D9;
-            text-decoration: none;
-            font-size: 0.95rem;
-            border-bottom: 1px solid transparent;
-            transition: border 0.2s;
-        }
-        .projects-nav a:hover {
-            border-bottom: 1px solid #0074D9;
-        }
+  <style>
+    /* --- Minimal on-page styles (safe to override in external CSS) --- */
 
-        /* Read more (details/summary) */
-        details.read-more {
-            margin-top: 1rem;
-        }
-        details.read-more summary {
-            cursor: pointer;
-            color: #0074D9;
-            font-weight: bold;
-            text-decoration: underline;
-            list-style: none;
-            outline: none;
-        }
-        /* Hide default marker */
-        details.read-more summary::-webkit-details-marker { display: none; }
-        details.read-more[open] summary { text-decoration: none; }
-        .read-more-content { margin-top: 1rem; }
-        /* Keyboard focus hint */
-        details.read-more summary:focus {
-            outline: 2px solid #0074D9;
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
-    </style>
+    /* Layout & defaults */
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #111; background: #fff; }
+    header { border-bottom: 1px solid #eee; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+    footer { border-top: 1px solid #eee; padding: 1rem; text-align: center; color: #555; }
+
+    /* Top nav */
+    header nav { display: flex; gap: 1rem; padding: 0.75rem 1rem; flex-wrap: wrap; }
+    header nav a { text-decoration: none; color: #0074D9; padding: 0.25rem 0.5rem; border-radius: 6px; }
+    header nav a.active { background: #eaf4ff; font-weight: 600; }
+
+    /* Projects header */
+    .projects h1 { margin: 1.5rem 0 0.5rem; }
+
+    /* Section nav (anchors to project sections) */
+    .projects-nav { margin: 1.5rem 0; padding: 1rem; background: #f7f9fb; border-left: 4px solid #0074D9; border-radius: 6px; }
+    .projects-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
+    .projects-nav a { color: #0074D9; text-decoration: none; border-bottom: 1px solid transparent; }
+    .projects-nav a:hover { border-bottom-color: #0074D9; }
+
+    /* Case study card */
+    .case-study-card { border: 1px solid #ddd; border-radius: 10px; padding: 1.25rem; margin: 1.5rem 0; background: #fafafa; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .case-study-card h2 { margin: 0 0 0.5rem; color: #0074D9; }
+    .case-study-card img { display: block; margin: 1rem auto; max-width: 100%; border-radius: 6px; }
+    .case-study-card h3 { margin-top: 1.2rem; font-size: 1.2rem; }
+    .case-study-card ul { margin: 0.5rem 0 1rem 1.2rem; }
+
+    /* Read more (details/summary) — accessible + no JS */
+    details.read-more { margin-top: 1rem; }
+    details.read-more summary {
+      cursor: pointer; color: #0074D9; font-weight: 700; text-decoration: underline; list-style: none; outline: none;
+    }
+    details.read-more summary::-webkit-details-marker { display: none; } /* hide default marker */
+    details.read-more[open] summary { text-decoration: none; }
+    .read-more-content { margin-top: 1rem; }
+
+    /* Keyboard focus */
+    details.read-more summary:focus {
+      outline: 2px solid #0074D9; outline-offset: 2px; border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav aria-label="Main">
-            <a href="index.html">About</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="resume.html">Resume/CV</a>
-            <a href="presentations.html">Presentations</a>
-            <a href="classes-taught.html">Classes Taught</a>
-            <a href="classes-taken.html">Classes Taken</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <header>
+    <nav aria-label="Main">
+      <a href="index.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="resume.html">Resume/CV</a>
+      <a href="presentations.html">Presentations</a>
+      <a href="classes-taught.html">Classes Taught</a>
+      <a href="classes-taken.html">Classes Taken</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <main>
-        <section class="projects">
-            <h1>Projects (under construction)</h1>
-        </section>
+  <main>
+    <section class="projects">
+      <h1>Projects (under construction)</h1>
+      <p class="lede">Browse selected projects across federal public health, state government, research, teaching, and documentary work.</p>
+    </section>
 
-        <!-- Projects Navigation -->
-        <nav class="projects-nav" aria-label="Projects section navigation">
+    <!-- In-page navigation to sections -->
+    <nav class="projects-nav" aria-label="Projects section navigation">
+      <ul>
+        <li><a href="#cdc-data">CDC Data Modernization</a></li>
+        <li><a href="#cdc-clean">CDC Clean Slate</a></li>
+        <li><a href="#cdc-tobacco">CDC Tobacco Redesign</a></li>
+        <li><a href="#wi-dhs">WI Dept of Health COVID Workflow</a></li>
+        <li><a href="#wi-taskforce">WI COVID Task Force</a></li>
+        <li><a href="#dissertation">Dissertation</a></li>
+        <li><a href="#bodycam">Body-worn Camera Research</a></li>
+        <li><a href="#uo-teaching">Teaching at UO</a></li>
+        <li><a href="#workforce">Workforce Development</a></li>
+        <li><a href="#soldiers-home">A Soldier’s Home Documentary</a></li>
+        <li><a href="#starworlds">Star Worlds Arcade Documentary</a></li>
+      </ul>
+    </nav>
+
+    <section aria-label="Project details">
+      <h2 id="cdc-data">CDC Data Modernization Initiative</h2>
+      <p>Strategic content and UX support within CDC’s multi-year effort to modernize surveillance systems, improve data interoperability, and strengthen public health data exchange.</p>
+
+      <h2 id="cdc-clean">CDC Clean Slate Initiative</h2>
+      <p>Content strategy and information architecture work to clarify program goals, simplify pathways for priority audiences, and align language with equity-forward guidance.</p>
+
+      <!-- Case Study Card -->
+      <div class="case-study-card" id="cdc-tobacco">
+        <h2>CDC Tobacco Website Redesign for the Office on Smoking and Health</h2>
+        <img src="assets/side-by-side-comparison.png" alt="CDC Tobacco website before-and-after comparison" />
+
+        <p>
+          The CDC Tobacco website had grown into a comprehensive but content-heavy resource.
+          As Content Strategist, I led modernization efforts to improve clarity, accessibility, and equity framing.
+        </p>
+
+        <!-- Accessible, JS-free expansion -->
+        <details class="read-more">
+          <summary>Read More</summary>
+          <div class="read-more-content">
+            <h3>Problem</h3>
             <ul>
-                <li><a href="#cdc-data">CDC Data Modernization</a></li>
-                <li><a href="#cdc-clean">CDC Clean Slate</a></li>
-                <li><a href="#cdc-tobacco">CDC Tobacco Redesign</a></li>
-                <li><a href="#wi-dhs">WI Dept of Health COVID Workflow</a></li>
-                <li><a href="#wi-taskforce">WI COVID Task Force</a></li>
-                <li><a href="#dissertation">Dissertation</a></li>
-                <li><a href="#bodycam">Body-worn Camera Research</a></li>
-                <li><a href="#uo-teaching">Teaching at UO</a></li>
-                <li><a href="#workforce">Workforce Development</a></li>
-                <li><a href="#sold
+              <li>Navigation reflected years of additions rather than a unified structure.</li>
+              <li>Content length and density made scanning difficult for non-experts.</li>
+              <li>Accessibility standards had evolved since the last redesign.</li>
+              <li>Health equity and disparities content was not highlighted in line with CDC’s modern framing.</li>
+            </ul>
+
+            <h3>Solution</h3>
+            <ul>
+              <li>Streamlined navigation aligned to audience needs (public, providers, public health).</li>
+              <li>Content audit and consolidation to reduce redundancy and simplify pathways.</li>
+              <li>Visual storytelling and improved readability with whitespace, infographics, and feature stories.</li>
+              <li>Accessibility compliance updates aligning with WCAG 2.1 standards.</li>
+              <li>Equity-first presentation elevating disparities and health equity content.</li>
+            </ul>
+
+            <h3>Impact (selected)</h3>
+            <ul>
+              <li>Reduced page depth for top tasks; clearer entrances for priority audiences.</li>
+              <li>Improved readability scores and scan-ability across high-traffic pages.</li>
+              <li>Clearer framing of disparities content and equity guidance.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <!-- End Case Study Card -->
+
+      <h2 id="wi-dhs">WI Dept of Health COVID-19 Publication Workflow</h2>
+      <p>Defined a structured cross-functional publication workflow with QA checkpoints, accessibility checks, and analytics tagging for state health communications.</p>
+
+      <h2 id="wi-taskforce">State of Wisconsin COVID-19 Emergency Management Task Force</h2>
+      <p>Coordinated information flows and content updates across agencies to ensure timely, consistent public guidance and situational awareness.</p>
+
+      <h2 id="dissertation">Dissertation — Representation and Exploitation of War and Conflict</h2>
+      <p>PhD research examining how communication policy and media censorship shape the political economy of nonfiction combat footage.</p>
+
+      <h2 id="bodycam">Qualitative Research: Challenges of Obtaining Body-worn Cameras in Eugene, OR</h2>
+      <p>Field research and stakeholder interviews addressing access barriers, policy constraints, and public transparency concerns.</p>
+
+      <h2 id="uo-teaching">Teaching at the University of Oregon</h2>
+      <p>Courses in multimedia, strategic communication, and media studies; emphasis on data storytelling, UX content design, and ethical practice.</p>
+
+      <h2 id="workforce">Workforce Development: Preparing Clients for the Digital Job Search</h2>
+      <p>Program design and training to upskill job seekers on portfolio building, ATS-smart resumes, and analytics-informed personal branding.</p>
+
+      <h2 id="soldiers-home">A Soldier’s Home — Auto-ethnographic Documentary Thesis</h2>
+      <p>Documentary storytelling focusing on veteran experience and reintegration, blending personal narrative with public history.</p>
+
+      <h2 id="starworlds">Star Worlds Arcade Documentary (Field Work)</h2>
+      <p>Production and research support for a documentary centered on arcade culture, preservation, and community memory.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Andrew O. McLaughlin, PhD</p>
+  </footer>
+</body>
+</html>
