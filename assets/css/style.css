@@ -128,4 +128,16 @@ html, body { scroll-behavior: smooth; }
 
 /* Bullets only inside resume content */
 .resume ul { list-style: disc; padding-left: 1.5rem; }
+.read-more summary {
+  cursor: pointer;
+  color: #0074D9;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-decoration: underline;
+  list-style: none;
+}
+.read-more summary::-webkit-details-marker { display: none; } /* hide default marker */
+.read-more[open] summary { text-decoration: none; }
+.read-more-content { margin-top: 1rem; }
+
 
