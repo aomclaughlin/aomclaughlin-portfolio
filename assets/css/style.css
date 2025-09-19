@@ -106,3 +106,15 @@ footer {
     color: #888;
     font-size: 0.95rem;
 }
+/* Classes Taken page: indent bullets inside the content column */
+.classes-taken ul {
+    list-style: disc;
+    list-style-position: inside; /* bullets sit inside the text column */
+    padding-left: 1rem;          /* gentle indent so bullets clear the H1 line */
+    margin: 0;
+}
+
+.classes-taken li {
+    margin-bottom: 0.6rem;       /* tighter list spacing for readability */
+}
+
