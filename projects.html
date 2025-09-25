@@ -47,6 +47,8 @@
       width: 100%;
       height: auto;
       display: block;
+      background: #f2f2f2;
+      min-height: 160px; /* visible placeholder area if image missing */
     }
     .project-card-body {
       padding: 14px 16px;
@@ -97,6 +99,10 @@
       text-align: center;
       color: #666;
     }
+      /* YouTube button */
+    .btn-yt { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid #d1d5db; text-decoration:none; font-weight:600; }
+    .btn-yt:hover { background:#f9fafb; }
+    .btn-yt svg { width:18px; height:18px; fill: currentColor; }
   </style>
 </head>
 <body>
@@ -121,16 +127,13 @@
         </div>
       </div>
 
-      <div class="projects-grid">
-        <!-- Combined CDC card -->
+      <div class="projects-grid">        <!-- CDC Clean Slate + Tobacco Website Redesign -->
         <article class="project-card">
-          <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" />
+          <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=1';" />
           <div class="project-card-body">
             <h3>CDC “Clean Slate” &amp; Tobacco Website Redesign — Office on Smoking and Health</h3>
             <div class="project-meta">Federal Public Health · Content Architecture &amp; UX</div>
-            <p class="project-summary">
-              Unified component patterns and page templates to modernize information architecture and improve content consistency across OSH program pages.
-            </p>
+            <p class="project-summary">Unified component patterns and page templates to modernize information architecture and improve content consistency across OSH program pages.</p>
             <details>
               <summary>Read more</summary>
               <ul>
@@ -140,11 +143,29 @@
               </ul>
             </details>
           </div>
+        </article><!-- COVID-19 Workflow Tool -->
+        <article class="project-card">
+          <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=6';" />
+          <div class="project-card-body">
+            <h3>building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
+            <div class="project-meta">State Public Health · Workflow &amp; Automation</div>
+            <p class="project-summary">
+              Built a lightweight workflow in Microsoft Lists to triage, track, and publish fast‑moving guidance updates. Included status, ownership, timestamps, and automated notifications to reduce turnaround time and maintain a clear audit trail.
+            </p>
+            <details>
+              <summary>Read more</summary>
+              <ul>
+                <li>Structured schema for source, audience, priority, and change type to streamline review.</li>
+                <li>Saved views and filters for content owners; alerts for assignments and due dates.</li>
+                <li>History log to support QA, retrospectives, and leadership reporting.</li>
+              </ul>
+            </details>
+          </div>
         </article>
 
         <!-- STATE System UAT -->
         <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" />
+          <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=2';" />
           <div class="project-card-body">
             <h3>STATE System—UAT for Commercial Tobacco Surveillance</h3>
             <div class="project-meta">Federal Public Health · Data QA &amp; UAT</div>
@@ -164,7 +185,7 @@
 
         <!-- MCRC UAT -->
         <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" />
+          <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=3';" />
           <div class="project-card-body">
             <h3>Media Campaign Resource Center (MCRC)—Catalog &amp; Admin UAT</h3>
             <div class="project-meta">Federal Public Health · Catalog QA &amp; Workflow</div>
@@ -182,29 +203,27 @@
           </div>
         </article>
 
-        <!-- Star Worlds (title without parenthetical) -->
+                <!-- Star Worlds with YouTube link -->
         <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="Star Worlds arcade project imagery placeholder" loading="lazy" />
+          <a href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
+            <img src="https://img.youtube.com/vi/eALYKWhwpTw/hqdefault.jpg" alt="Star Worlds — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=4';" />
+          </a>
           <div class="project-card-body">
             <h3>Star Worlds</h3>
             <div class="project-meta">Documentary · Production &amp; Research</div>
             <p class="project-summary">
               A nonfiction piece focused on place, community, and arcade culture, emphasizing ethical field production and archival care.
             </p>
-            <details>
-              <summary>Read more</summary>
-              <ul>
-                <li>Coordinated shoots, releases, and archival research.</li>
-                <li>Managed post-production schedules and deliverables.</li>
-                <li>Prepared captions and transcripts for accessibility.</li>
-              </ul>
-            </details>
+            <a class="btn-yt" href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds on YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2c-.3-1.2-1.2-2.1-2.4-2.4C19 3.4 12 3.4 12 3.4s-7 0-9.1.4C1.7 4.2.8 5.1.5 6.3 0 8.5 0 12 0 12s0 3.5.5 5.7c.3 1.2 1.2 2.1 2.4 2.4 2.1.4 9.1.4 9.1.4s7 0 9.1-.4c1.2-.3 2.1-1.2 2.4-2.4.5-2.2.5-5.7.5-5.7s0-3.5-.5-5.7zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"></path></svg>
+              Watch Trailer on YouTube
+            </a>
           </div>
         </article>
 
-        <!-- Documentary work (kept general; no university teaching references) -->
+        <!-- Documentary & Research -->
         <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="Documentary and research materials placeholder" loading="lazy" />
+          <img src="assets/placeholder-640x360.png" alt="Documentary and research materials placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=5';" />
           <div class="project-card-body">
             <h3>Documentary &amp; Research</h3>
             <div class="project-meta">Nonfiction · Methods &amp; Storycraft</div>
