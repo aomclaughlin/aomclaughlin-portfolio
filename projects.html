@@ -3,30 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <title>Andrew O. McLaughlin, PhD – Projects</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/style.css" />
-
   <style>
-    /* Case study card */
-    .case-study-card { border: 1px solid #ddd; border-radius: 10px; padding: 1.25rem; margin: 1.5rem 0; background: #fafafa; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-    .case-study-card h2 { margin: 0 0 0.5rem; color: #0074D9; }
-    .case-study-card img { display: block; margin: 1rem auto; max-width: 100%; border-radius: 6px; }
-    .case-study-card h3 { margin-top: 1.2rem; font-size: 1.2rem; }
-    .case-study-card ul { margin: 0.5rem 0 1rem 1.2rem; }
+    /* Banner styling copied from index */
+    .heading-container {
+      position: relative;
+      margin-bottom: 1em;
+    }
+    .banner-box {
+      background-color: #f0f4f8; /* light background */
+      border-left: 4px solid #0077cc; /* accent color on left */
+      padding: 10px 15px;
+      margin-top: 0.5em;
+      font-style: italic;
+      color: #333333;
+      max-width: 600px; /* keeps banner from spanning too wide */
+    }
 
-    /* In-page projects nav (section index) */
-    .projects-nav { margin: 1.5rem 0; padding: 1rem; background: #f7f9fb; border-left: 4px solid #0074D9; border-radius: 6px; }
-    .projects-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; }
-    .projects-nav a { text-decoration: none; color: #0074D9; border-bottom: 1px solid transparent; }
-    .projects-nav a:hover { border-bottom-color: #0074D9; }
+    /* Minimal layout & cards (safe if your main CSS already includes these) */
+    .projects {
+      padding: 1rem;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 1rem;
+    }
+    .project-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .project-card-body {
+      padding: 14px 16px;
+    }
+    .project-card-body h3 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+    .project-meta {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .project-summary {
+      margin: 0.5rem 0 0.75rem 0;
+      color: #333;
+    }
+    details > summary {
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+      margin: 0.25rem 0;
+      font-weight: 600;
+    }
+    details[open] summary { margin-bottom: 0.5rem; }
+    details p, details ul { margin-top: 0.25rem; }
 
-    /* Read more (details/summary) — accessible + no JS */
-    details.read-more { margin-top: 1rem; }
-    details.read-more summary { cursor: pointer; color: #0074D9; font-weight: 700; text-decoration: underline; list-style: none; outline: none; }
-    details.read-more summary::-webkit-details-marker { display: none; }
-    details.read-more[open] summary { text-decoration: none; }
-    .read-more-content { margin-top: 1rem; }
-    details.read-more summary:focus { outline: 2px solid #0074D9; outline-offset: 2px; border-radius: 4px; }
+    /* Header nav */
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 12px;
+    }
+    header nav a {
+      text-decoration: none;
+      color: #222;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    header nav a.active {
+      background: #eef6ff;
+      border: 1px solid #cfe6ff;
+    }
+    footer {
+      padding: 24px 12px;
+      text-align: center;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -44,95 +114,98 @@
 
   <main>
     <section class="projects">
-      <h1>Projects (under construction)</h1>
-      <p class="lede">Browse selected projects across federal public health, state government, research, teaching, and documentary work.</p>
-    </section>
-
-    <!-- In-page navigation -->
-    <nav class="projects-nav" aria-label="Projects section navigation">
-      <ul>
-        <li><a href="#cdc-data">CDC Data Modernization</a></li>
-        <li><a href="#cdc-clean">CDC Clean Slate</a></li>
-        <li><a href="#cdc-tobacco">CDC Tobacco Redesign</a></li>
-        <li><a href="#wi-dhs">WI Dept of Health COVID Workflow</a></li>
-        <li><a href="#wi-taskforce">WI COVID Task Force</a></li>
-        <li><a href="#dissertation">Dissertation</a></li>
-        <li><a href="#bodycam">Body-worn Camera Research</a></li>
-        <li><a href="#uo-teaching">Teaching at UO</a></li>
-        <li><a href="#workforce">Workforce Development</a></li>
-        <li><a href="#soldiers-home">A Soldier’s Home Documentary</a></li>
-        <li><a href="#starworlds">Star Worlds Arcade Documentary</a></li>
-      </ul>
-    </nav>
-
-    <section aria-label="Project details">
-      <h2 id="cdc-data">CDC Data Modernization Initiative</h2>
-      <p>Strategic content and UX support within CDC’s multi-year effort to modernize surveillance systems, improve data interoperability, and strengthen public health data exchange.</p>
-
-      <h2 id="cdc-clean">CDC Clean Slate Initiative</h2>
-      <p>Content strategy and information architecture work to clarify program goals, simplify pathways for priority audiences, and align language with equity-forward guidance.</p>
-
-      <!-- CDC Tobacco Case Study -->
-      <div class="case-study-card" id="cdc-tobacco">
-        <h2>CDC Tobacco Website Redesign for the Office on Smoking and Health</h2>
-        <img src="assets/side-by-side-comparison.png" alt="CDC Tobacco website before-and-after comparison" />
-
-        <p>
-          The CDC Tobacco website had grown into a comprehensive but content-heavy resource.
-          As Content Strategist, I led modernization efforts to improve clarity, accessibility, and equity framing.
-        </p>
-
-        <details class="read-more">
-          <summary>Read More</summary>
-          <div class="read-more-content">
-            <h3>Problem</h3>
-            <ul>
-              <li>Navigation reflected years of additions rather than a unified structure.</li>
-              <li>Content length and density made scanning difficult for non-experts.</li>
-              <li>Accessibility standards had evolved since the last redesign.</li>
-              <li>Health equity and disparities content was not highlighted in line with CDC’s modern framing.</li>
-            </ul>
-            <h3>Solution</h3>
-            <ul>
-              <li>Streamlined navigation aligned to audience needs (public, providers, public health).</li>
-              <li>Content audit and consolidation to reduce redundancy and simplify pathways.</li>
-              <li>Visual storytelling and improved readability with whitespace, infographics, and feature stories.</li>
-              <li>Accessibility compliance updates aligning with WCAG 2.1 standards.</li>
-              <li>Equity-first presentation elevating disparities and health equity content.</li>
-            </ul>
-            <h3>Impact</h3>
-            <ul>
-              <li>Reduced page depth for top tasks; clearer entrances for priority audiences.</li>
-              <li>Improved readability scores and scan-ability across high-traffic pages.</li>
-              <li>Clearer framing of disparities content and equity guidance.</li>
-            </ul>
-          </div>
-        </details>
+      <div class="heading-container">
+        <h1>Projects</h1>
+        <div class="banner-box">
+          Browse selected projects across federal public health, state government, research, teaching, and documentary work.
+        </div>
       </div>
 
-      <h2 id="wi-dhs">WI Dept of Health COVID-19 Publication Workflow</h2>
-      <p>Defined a structured cross-functional publication workflow with QA checkpoints, accessibility checks, and analytics tagging for state health communications.</p>
+      <div class="projects-grid">
+        <!-- Combined CDC design/IA/UX card (unchanged from prior draft) -->
+        <article class="project-card">
+          <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" />
+          <div class="project-card-body">
+            <h3>CDC “Clean Slate” &amp; Tobacco Website Redesign — Office on Smoking and Health</h3>
+            <div class="project-meta">Federal Public Health · Content Architecture &amp; UX</div>
+            <p class="project-summary">
+              Unified component patterns and page templates to modernize information architecture and improve content consistency across OSH program pages.
+            </p>
+            <details>
+              <summary>Read more</summary>
+              <ul>
+                <li>Drafted and refined modular page layouts aligned with editorial and accessibility standards.</li>
+                <li>Coordinated cross-team reviews; tracked changes from draft to final publish.</li>
+                <li>Clarified link intent, alt text, and headings; improved navigation and scannability.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
 
-      <h2 id="wi-taskforce">State of Wisconsin COVID-19 Emergency Management Task Force</h2>
-      <p>Coordinated information flows and content updates across agencies to ensure timely, consistent public guidance and situational awareness.</p>
+        <!-- UPDATED: Consolidated UAT case study card with screenshot (replaces separate STATE System & MCRC UAT cards) -->
+        <article class="project-card">
+          <img src="assets/Statesystem.png" alt="Screenshot of CDC STATE System interface used during UAT" loading="lazy" />
+          <div class="project-card-body">
+            <h3>CDC Office on Smoking and Health — Web Application Modernization &amp; UAT Testing</h3>
+            <div class="project-meta">Federal Public Health · UAT &amp; Content Governance</div>
+            <p class="project-summary">
+              Coordinated and executed UAT across STATE System, GTSS Explorer, and MCRC to ensure accurate data, coherent IA, and reliable workflows ahead of relaunch.
+            </p>
+            <details>
+              <summary>Read more</summary>
+              <p><strong>Problem</strong><br/>
+                OSH manages several public-facing platforms—<em>STATE System</em>, <em>GTSS Explorer</em>, and the <em>Media Campaign Resource Center (MCRC)</em>. Over time, content structures, tagging, and backend tools diverged, creating maintenance challenges. Data visualizations risked inaccuracies when underlying data mismatched, and the MCRC’s Microsoft Dynamics–powered catalog and inventory system showed inconsistencies between public and admin interfaces. Prior to modernization and relaunch, OSH needed comprehensive UAT, IA review, and refreshed support documentation.
+              </p>
+              <p><strong>Solution</strong><br/>
+                Led UAT across multiple OSH applications. For the <em>STATE System</em>, validated landing pages, data filters, and cessation modules for accuracy and cross-view consistency. For <em>MCRC</em>, tested both the public catalog search used by health professionals and the admin-side inventory/processing in Microsoft Dynamics. Rewrote MCRC help pages to guide users through the updated interface. More broadly, updated landing and non-application content pages to align IA, tagging, and metadata with accessibility, SEO, and plain language standards.
+              </p>
+              <p><strong>Impact</strong><br/>
+                Supported successful relaunch of modernized OSH applications, strengthening access to reliable state and global tobacco data and enabling professionals to search, order, and track anti-tobacco campaign materials with confidence. Revised help documentation reduced confusion during MCRC relaunch, while corrected tagging and metadata improved governance and site search across CDC.gov. Iterative UAT cycles aligned technical functionality with content strategy, delivering trusted, user-friendly resources for the public and internal staff.
+              </p>
+            </details>
+          </div>
+        </article>
 
-      <h2 id="dissertation">Dissertation — Representation and Exploitation of War and Conflict</h2>
-      <p>PhD research examining how communication policy and media censorship shape the political economy of nonfiction combat footage.</p>
+        <!-- Star Worlds (title without parenthetical) -->
+        <article class="project-card">
+          <img src="assets/placeholder-640x360.png" alt="Star Worlds arcade project imagery placeholder" loading="lazy" />
+          <div class="project-card-body">
+            <h3>Star Worlds</h3>
+            <div class="project-meta">Documentary · Production &amp; Research</div>
+            <p class="project-summary">
+              A nonfiction piece focused on place, community, and arcade culture, emphasizing ethical field production and archival care.
+            </p>
+            <details>
+              <summary>Read more</summary>
+              <ul>
+                <li>Coordinated shoots, releases, and archival research.</li>
+                <li>Managed post-production schedules and deliverables.</li>
+                <li>Prepared captions and transcripts for accessibility.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
 
-      <h2 id="bodycam">Qualitative Research: Challenges of Obtaining Body-worn Cameras in Eugene, OR</h2>
-      <p>Field research and stakeholder interviews addressing access barriers, policy constraints, and public transparency concerns.</p>
-
-      <h2 id="uo-teaching">Teaching at the University of Oregon</h2>
-      <p>Courses in multimedia, strategic communication, and media studies; emphasis on data storytelling, UX content design, and ethical practice.</p>
-
-      <h2 id="workforce">Workforce Development: Preparing Clients for the Digital Job Search</h2>
-      <p>Program design and training to upskill job seekers on portfolio building, ATS-smart resumes, and analytics-informed personal branding.</p>
-
-      <h2 id="soldiers-home">A Soldier’s Home — Auto-ethnographic Documentary Thesis</h2>
-      <p>Documentary storytelling focusing on veteran experience and reintegration, blending personal narrative with public history.</p>
-
-      <h2 id="starworlds">Star Worlds Arcade Documentary (Field Work)</h2>
-      <p>Production and research support for a documentary centered on arcade culture, preservation, and community memory.</p>
+        <!-- Documentary & Research (no university teaching section included) -->
+        <article class="project-card">
+          <img src="assets/placeholder-640x360.png" alt="Documentary and research materials placeholder" loading="lazy" />
+          <div class="project-card-body">
+            <h3>Documentary &amp; Research</h3>
+            <div class="project-meta">Nonfiction · Methods &amp; Storycraft</div>
+            <p class="project-summary">
+              Selected nonfiction projects emphasizing ethics, context, and clear public-interest storytelling.
+            </p>
+            <details>
+              <summary>Read more</summary>
+              <ul>
+                <li>Interview protocols, consent workflows, and release management.</li>
+                <li>Evidence logs, research notes, and metadata organization.</li>
+                <li>Captioning, transcripts, and accessibility-first post workflows.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
