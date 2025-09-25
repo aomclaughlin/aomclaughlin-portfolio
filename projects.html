@@ -6,100 +6,30 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     /* Banner styling copied from index */
-    .heading-container {
-      position: relative;
-      margin-bottom: 1em;
-    }
-    .banner-box {
-      background-color: #f0f4f8; /* light background */
-      border-left: 4px solid #0077cc; /* accent color on left */
-      padding: 10px 15px;
-      margin-top: 0.5em;
-      font-style: italic;
-      color: #333333;
-      max-width: 600px; /* keeps banner from spanning too wide */
-    }
+    .heading-container { position: relative; margin-bottom: 1em; }
+    .banner-box { background-color: #f0f4f8; border-left: 4px solid #0077cc; padding: 10px 15px; margin-top: 0.5em; font-style: italic; color: #333333; max-width: 600px; }
 
-    /* Minimal layout & cards (safe if your main CSS already includes these) */
-    .projects {
-      padding: 1rem;
-    }
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 1rem;
-    }
-    .project-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #f2f2f2;
-      min-height: 160px; /* visible placeholder area if image missing */
-    }
-    .project-card-body {
-      padding: 14px 16px;
-    }
-    .project-card-body h3 {
-      margin: 0 0 0.25rem 0;
-      font-size: 1.1rem;
-      line-height: 1.3;
-    }
-    .project-meta {
-      font-size: 0.9rem;
-      color: #555;
-      margin-bottom: 0.5rem;
-    }
-    .project-summary {
-      margin: 0.5rem 0 0.75rem 0;
-      color: #333;
-    }
-    details > summary {
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-      margin: 0.25rem 0;
-      font-weight: 600;
-    }
-    details[open] summary { margin-bottom: 0.5rem; }
-    details p, details ul { margin-top: 0.25rem; }
+    /* Keep page layout minimal; match other pages */
+    .projects { padding: 1rem; }
+    main { max-width: 1100px; margin: 0 auto; }
 
-    /* Simple responsive tweak for the header nav */
-    header nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px 12px;
-    }
-    header nav a {
-      text-decoration: none;
-      color: #222;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-    header nav a.active {
-      background: #eef6ff;
-      border: 1px solid #cfe6ff;
-    }
-    footer {
-      padding: 24px 12px;
-      text-align: center;
-      color: #666;
-    }
-      /* YouTube button */
+    /* Vertical case study layout (full-width, aligned) */
+    .case-list { display: flex; flex-direction: column; gap: 32px; }
+    .case-card { border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); overflow: hidden; width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
+
+    /* Consistent 16:9 media area to prevent staggering */
+    .case-media { position: relative; width: 100%; background: #f2f2f2; }
+    .case-media::before { content: ""; display: block; padding-top: 56.25%; }
+    .case-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .case-body { padding: 16px 18px; }
+    .case-body h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; line-height: 1.3; }
+    .case-meta { font-size: 0.9rem; color: #555; margin-bottom: 0.5rem; }
+    .case-section { margin-top: 0.75rem; }
+    .case-section h4 { margin: 0 0 0.25rem 0; font-size: 1rem; }
+    .case-section ul { margin: 0.25rem 0 0 1.2rem; }
+
+    /* YouTube button */
     .btn-yt { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid #d1d5db; text-decoration:none; font-weight:600; }
     .btn-yt:hover { background:#f9fafb; }
     .btn-yt svg { width:18px; height:18px; fill: currentColor; }
@@ -127,94 +57,154 @@
         </div>
       </div>
 
-      <div class="projects-grid">        <!-- CDC Clean Slate + Tobacco Website Redesign -->
-        <article class="project-card">
-          <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=1';" />
-          <div class="project-card-body">
-            <h3>CDC “Clean Slate” &amp; Tobacco Website Redesign — Office on Smoking and Health</h3>
-            <div class="project-meta">Federal Public Health · Content Architecture &amp; UX</div>
-            <p class="project-summary">Unified component patterns and page templates to modernize information architecture and improve content consistency across OSH program pages.</p>
-            <details>
-              <summary>Read more</summary>
-              <ul>
-                <li>Drafted and refined modular page layouts aligned with editorial and accessibility standards.</li>
-                <li>Coordinated cross-team reviews; tracked changes from draft to final publish.</li>
-                <li>Clarified link intent, alt text, and headings; improved navigation and scannability.</li>
-              </ul>
-            </details>
+      <div class="case-list">
+        <!-- CDC Clean Slate + Tobacco Website Redesign -->
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=1';" />
           </div>
-        </article><!-- COVID-19 Workflow Tool -->
-        <article class="project-card">
-          <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=6';" />
-          <div class="project-card-body">
-            <h3>building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
-            <div class="project-meta">State Public Health · Workflow &amp; Automation</div>
-            <p class="project-summary">
-              Built a lightweight workflow in Microsoft Lists to triage, track, and publish fast‑moving guidance updates. Included status, ownership, timestamps, and automated notifications to reduce turnaround time and maintain a clear audit trail.
-            </p>
-            <details>
-              <summary>Read more</summary>
+          <div class="case-body">
+            <h3>CDC “Clean Slate” &amp; Tobacco Website Redesign — Office on Smoking and Health</h3>
+            <div class="case-meta">Federal Public Health · Content Architecture &amp; UX</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Inconsistent page patterns and complex information architecture made it harder for audiences to find program content and for teams to maintain it.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
               <ul>
-                <li>Structured schema for source, audience, priority, and change type to streamline review.</li>
-                <li>Saved views and filters for content owners; alerts for assignments and due dates.</li>
-                <li>History log to support QA, retrospectives, and leadership reporting.</li>
+                <li>Unified component patterns (headers, intros, CTAs, related content) into modular templates.</li>
+                <li>Refined navigation and headings for clarity and accessibility.</li>
+                <li>Facilitated cross‑team reviews and documented standards for reuse.</li>
               </ul>
-            </details>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Improved content consistency and scannability across OSH pages.</li>
+                <li>Reduced editorial effort for updates and new page builds.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- COVID-19 Workflow Tool -->
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=6';" />
+          </div>
+          <div class="case-body">
+            <h3>building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
+            <div class="case-meta">State Public Health · Workflow &amp; Automation</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Rapid guidance changes risked missed updates, unclear ownership, and delays to publication.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
+              <ul>
+                <li>Microsoft Lists workflow with fields for source, audience, priority, and change type.</li>
+                <li>Saved views/filters for owners; notifications for assignments and due dates.</li>
+                <li>History log to support QA and leadership reporting.</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Clear triage and ownership; faster turnaround on content updates.</li>
+                <li>Traceable audit trail for retrospectives and compliance.</li>
+              </ul>
+            </div>
           </div>
         </article>
 
         <!-- STATE System UAT -->
-        <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=2';" />
-          <div class="project-card-body">
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=2';" />
+          </div>
+          <div class="case-body">
             <h3>STATE System—UAT for Commercial Tobacco Surveillance</h3>
-            <div class="project-meta">Federal Public Health · Data QA &amp; UAT</div>
-            <p class="project-summary">
-              Verified that backend data matched filterable modules, metadata was accurate, and map visualizations functioned correctly.
-            </p>
-            <details>
-              <summary>Read more</summary>
+            <div class="case-meta">Federal Public Health · Data QA &amp; UAT</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Potential mismatches between backend data and UI filters/labels could mislead users and undermine trust in visualizations.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
               <ul>
-                <li>Executed test cases across filters, views, and export paths.</li>
-                <li>Logged discrepancies and collaborated on fixes to acceptance.</li>
-                <li>Spot-checked labels, units, and source notes for clarity.</li>
+                <li>End‑to‑end test cases across filters, views, exports, and map layers.</li>
+                <li>Defect logging with repro steps; partnered with devs to resolution.</li>
+                <li>Spot checks on units, labels, and source notes.</li>
               </ul>
-            </details>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Higher confidence in data integrity and UI behavior pre‑launch.</li>
+                <li>Smoother handoff to content and analytics teams.</li>
+              </ul>
+            </div>
           </div>
         </article>
 
         <!-- MCRC UAT -->
-        <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=3';" />
-          <div class="project-card-body">
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=3';" />
+          </div>
+          <div class="case-body">
             <h3>Media Campaign Resource Center (MCRC)—Catalog &amp; Admin UAT</h3>
-            <div class="project-meta">Federal Public Health · Catalog QA &amp; Workflow</div>
-            <p class="project-summary">
-              Performed UAT on the customer catalog search experience and the admin order intake/processing workflow.
-            </p>
-            <details>
-              <summary>Read more</summary>
+            <div class="case-meta">Federal Public Health · Catalog QA &amp; Workflow</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Customers needed reliable search and preview; staff required a stable order intake and processing workflow.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
               <ul>
-                <li>Checked search parameters, result relevance, and pagination.</li>
-                <li>Validated order form fields, states, and submission handling.</li>
-                <li>Reviewed metadata fields and asset previews for consistency.</li>
+                <li>Tested relevance, filters, pagination, and media previews on the catalog side.</li>
+                <li>Validated admin form fields, states, notifications, and data capture.</li>
               </ul>
-            </details>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Reduced ordering friction for customers and fewer admin errors.</li>
+                <li>Clearer metadata supporting search and retrieval.</li>
+              </ul>
+            </div>
           </div>
         </article>
 
-                <!-- Star Worlds with YouTube link -->
-        <article class="project-card">
-          <a href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
-            <img src="https://img.youtube.com/vi/eALYKWhwpTw/hqdefault.jpg" alt="Star Worlds — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=4';" />
-          </a>
-          <div class="project-card-body">
+        <!-- Star Worlds with YouTube link -->
+        <article class="case-card">
+          <div class="case-media">
+            <a href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
+              <img src="https://img.youtube.com/vi/eALYKWhwpTw/hqdefault.jpg" alt="Star Worlds — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=4';" />
+            </a>
+          </div>
+          <div class="case-body">
             <h3>Star Worlds</h3>
-            <div class="project-meta">Documentary · Production &amp; Research</div>
-            <p class="project-summary">
-              A nonfiction piece focused on place, community, and arcade culture, emphasizing ethical field production and archival care.
-            </p>
-            <a class="btn-yt" href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds on YouTube">
+            <div class="case-meta">Documentary · Production &amp; Research</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Tell a community’s story around arcade culture with ethical field production and accessible delivery.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
+              <ul>
+                <li>Coordinated releases, archival research, and on‑site production logistics.</li>
+                <li>Managed post‑production schedules and deliverables; prepared captions/transcripts.</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Completed trailer and materials that foreground context and accessibility.</li>
+              </ul>
+            </div>
+            <a class="btn-yt" href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2c-.3-1.2-1.2-2.1-2.4-2.4C19 3.4 12 3.4 12 3.4s-7 0-9.1.4C1.7 4.2.8 5.1.5 6.3 0 8.5 0 12 0 12s0 3.5.5 5.7c.3 1.2 1.2 2.1 2.4 2.4 2.1.4 9.1.4 9.1.4s7 0 9.1-.4c1.2-.3 2.1-1.2 2.4-2.4.5-2.2.5-5.7.5-5.7s0-3.5-.5-5.7zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"></path></svg>
               Watch Trailer on YouTube
             </a>
@@ -222,22 +212,30 @@
         </article>
 
         <!-- Documentary & Research -->
-        <article class="project-card">
-          <img src="assets/placeholder-640x360.png" alt="Documentary and research materials placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/640/360?random=5';" />
-          <div class="project-card-body">
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/placeholder-640x360.png" alt="Documentary and research materials placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=5';" />
+          </div>
+          <div class="case-body">
             <h3>Documentary &amp; Research</h3>
-            <div class="project-meta">Nonfiction · Methods &amp; Storycraft</div>
-            <p class="project-summary">
-              Selected nonfiction projects emphasizing ethics, context, and clear public-interest storytelling.
-            </p>
-            <details>
-              <summary>Read more</summary>
+            <div class="case-meta">Nonfiction · Methods &amp; Storycraft</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Projects needed consistent research hygiene and accessibility across artifacts.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
               <ul>
-                <li>Interview protocols, consent workflows, and release management.</li>
-                <li>Evidence logs, research notes, and metadata organization.</li>
-                <li>Captioning, transcripts, and accessibility-first post workflows.</li>
+                <li>Evidence logs, metadata organization, and consent workflows.</li>
+                <li>Accessible outputs (captions, transcripts) and archiving practices.</li>
               </ul>
-            </details>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Reusable methods and assets that speed future projects and reviews.</li>
+              </ul>
+            </div>
           </div>
         </article>
       </div>
