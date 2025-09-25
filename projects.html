@@ -13,6 +13,9 @@
     .projects { padding: 1rem; }
     main { max-width: 1100px; margin: 0 auto; }
 
+    /* Accessibility: limit paragraph measure to ~70 characters */
+    .projects p { max-width: 70ch; }
+
     /* Vertical case study layout (full-width, aligned) */
     .case-list { display: flex; flex-direction: column; gap: 32px; }
     .case-card { border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); overflow: hidden; width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
@@ -29,10 +32,10 @@
     .case-section h4 { margin: 0 0 0.25rem 0; font-size: 1rem; }
     .case-section ul { margin: 0.25rem 0 0 1.2rem; }
 
-    /* YouTube button */
-    .btn-yt { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid #d1d5db; text-decoration:none; font-weight:600; }
-    .btn-yt:hover { background:#f9fafb; }
-    .btn-yt svg { width:18px; height:18px; fill: currentColor; }
+    /* Buttons */
+    .btn-yt, .btn-ext { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid #d1d5db; text-decoration:none; font-weight:600; }
+    .btn-yt:hover, .btn-ext:hover { background:#f9fafb; }
+    .btn-yt svg, .btn-ext svg { width:18px; height:18px; fill: currentColor; }
   </style>
 </head>
 <body>
@@ -58,14 +61,14 @@
       </div>
 
       <div class="case-list">
-        <!-- CDC Clean Slate + Tobacco Website Redesign -->
+        <!-- CDC Clean Slate + Tobacco Website Redesign (latest) -->
         <article class="case-card">
           <div class="case-media">
             <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=1';" />
           </div>
           <div class="case-body">
-            <h3>CDC “Clean Slate” &amp; Tobacco Website Redesign — Office on Smoking and Health</h3>
-            <div class="case-meta">Federal Public Health · Content Architecture &amp; UX</div>
+            <h3>CDC “Clean Slate” &amp; tobacco website redesign — Office on Smoking and Health</h3>
+            <div class="case-meta">Federal public health · Content architecture &amp; UX</div>
             <div class="case-section">
               <h4>Problem</h4>
               <p>Inconsistent page patterns and complex information architecture made it harder for audiences to find program content and for teams to maintain it.</p>
@@ -88,74 +91,14 @@
           </div>
         </article>
 
-        <!-- COVID-19 Workflow Tool -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=6';" />
-          </div>
-          <div class="case-body">
-            <h3>building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
-            <div class="case-meta">State Public Health · Workflow &amp; Automation</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Rapid guidance changes risked missed updates, unclear ownership, and delays to publication.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Microsoft Lists workflow with fields for source, audience, priority, and change type.</li>
-                <li>Saved views/filters for owners; notifications for assignments and due dates.</li>
-                <li>History log to support QA and leadership reporting.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Clear triage and ownership; faster turnaround on content updates.</li>
-                <li>Traceable audit trail for retrospectives and compliance.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <!-- COVID-19 Emergency Management Task Force -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/COVID.jpeg" alt="COVID-19 Emergency Management Task Force" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=7';" />
-          </div>
-          <div class="case-body">
-            <h3>COVID-19 Emergency Management Task Force</h3>
-            <div class="case-meta">State Public Health · Emergency Ops &amp; Communications</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Rapidly evolving public health conditions required coordinated decision‑making, clear roles, and timely communication across agencies and stakeholders.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Supported task force stand‑ups with action logs, owners, and deadlines.</li>
-                <li>Codified intake → triage → approval → publish workflows for guidance and updates.</li>
-                <li>Partnered with SMEs to translate technical changes into plain‑language briefs.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Reduced cycle time from request to public update and fewer bottlenecks.</li>
-                <li>Consistent record of decisions, improving accountability and after‑action reviews.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
         <!-- STATE System UAT -->
         <article class="case-card">
           <div class="case-media">
             <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=2';" />
           </div>
           <div class="case-body">
-            <h3>STATE System—UAT for Commercial Tobacco Surveillance</h3>
-            <div class="case-meta">Federal Public Health · Data QA &amp; UAT</div>
+            <h3>STATE System — UAT for commercial tobacco surveillance</h3>
+            <div class="case-meta">Federal public health · Data QA &amp; UAT</div>
             <div class="case-section">
               <h4>Problem</h4>
               <p>Potential mismatches between backend data and UI filters/labels could mislead users and undermine trust in visualizations.</p>
@@ -184,8 +127,8 @@
             <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=3';" />
           </div>
           <div class="case-body">
-            <h3>Media Campaign Resource Center (MCRC)—Catalog &amp; Admin UAT</h3>
-            <div class="case-meta">Federal Public Health · Catalog QA &amp; Workflow</div>
+            <h3>Media Campaign Resource Center (MCRC) — catalog &amp; admin UAT</h3>
+            <div class="case-meta">Federal public health · Catalog QA &amp; workflow</div>
             <div class="case-section">
               <h4>Problem</h4>
               <p>Customers needed reliable search and preview; staff required a stable order intake and processing workflow.</p>
@@ -207,6 +150,127 @@
           </div>
         </article>
 
+        <!-- Dissertation (PhD) -->
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/Dissertation.png" alt="PhD dissertation cover" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=10';" />
+          </div>
+          <div class="case-body">
+            <h3>Representation and Exploitation of War and Conflict: Publicly Appropriable Media as Low Hanging Fruit</h3>
+            <div class="case-meta">PhD dissertation · University of Oregon · 2024</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>How do platform incentives, legal regimes, and archival access shape the exploitation and circulation of graphic war media online?</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
+              <ul>
+                <li>Historical analysis of shock media across formats and decades, with attention to the publicly appropriable archive (PAM).</li>
+                <li>Examined impacts of U.S. policy (e.g., Section 230) on distribution and monetization.</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Framework for evaluating ethical representation of conflict imagery; highlighted alternatives such as Dattalion.</li>
+              </ul>
+            </div>
+            <a class="btn-ext" href="https://scholarsbank.uoregon.edu/items/1b3aea3b-803b-465f-bdd9-bfe684c9f7fb" target="_blank" rel="noopener noreferrer" aria-label="Read dissertation in University of Oregon Scholars' Bank">
+              <!-- link icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
+              Read dissertation
+            </a>
+          </div>
+        </article>
+
+        <!-- COVID-19 Emergency Management Task Force -->
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/COVID.jpeg" alt="COVID-19 emergency management task force" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=7';" />
+          </div>
+          <div class="case-body">
+            <h3>COVID-19 emergency management task force</h3>
+            <div class="case-meta">State public health · Emergency ops &amp; communications</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Rapidly evolving public health conditions required coordinated decision‑making, clear roles, and timely communication across agencies and stakeholders.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
+              <ul>
+                <li>Supported task force stand‑ups with action logs, owners, and deadlines.</li>
+                <li>Codified intake → triage → approval → publish workflows for guidance and updates.</li>
+                <li>Partnered with SMEs to translate technical changes into plain‑language briefs.</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Reduced cycle time from request to public update and fewer bottlenecks.</li>
+                <li>Consistent record of decisions, improving accountability and after‑action reviews.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- COVID-19 workflow tool -->
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=6';" />
+          </div>
+          <div class="case-body">
+            <h3>Building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
+            <div class="case-meta">State public health · Workflow &amp; automation</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Rapid guidance changes risked missed updates, unclear ownership, and delays to publication.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
+              <ul>
+                <li>Microsoft Lists workflow with fields for source, audience, priority, and change type.</li>
+                <li>Saved views/filters for owners; notifications for assignments and due dates.</li>
+                <li>History log to support QA and leadership reporting.</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Clear triage and ownership; faster turnaround on content updates.</li>
+                <li>Traceable audit trail for retrospectives and compliance.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Veterans job search training -->
+        <article class="case-card">
+          <div class="case-media">
+            <img src="assets/veterans.jpeg" alt="Preparing veterans for the digital job search" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=9';" />
+          </div>
+          <div class="case-body">
+            <h3>Preparing veterans for the digital job search</h3>
+            <div class="case-meta">Workforce development · Training &amp; coaching</div>
+            <div class="case-section">
+              <h4>Problem</h4>
+              <p>Veterans transitioning to civilian roles face fragmented tools, unclear expectations, and rapidly changing hiring platforms.</p>
+            </div>
+            <div class="case-section">
+              <h4>Solution</h4>
+              <ul>
+                <li>Hands‑on workshops covering resumes, LinkedIn optimization, and ATS‑aware applications.</li>
+                <li>Practical exercises on job search strategy, outreach scripts, and interview prep.</li>
+              </ul>
+            </div>
+            <div class="case-section">
+              <h4>Outcome</h4>
+              <ul>
+                <li>Clear, repeatable playbooks that improved readiness and application quality.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
         <!-- Star Worlds with YouTube link -->
         <article class="case-card">
           <div class="case-media">
@@ -216,7 +280,7 @@
           </div>
           <div class="case-body">
             <h3>Star Worlds</h3>
-            <div class="case-meta">Documentary · Production &amp; Research</div>
+            <div class="case-meta">Documentary · Production &amp; research</div>
             <div class="case-section">
               <h4>Problem</h4>
               <p>Tell a community’s story around arcade culture with ethical field production and accessible delivery.</p>
@@ -241,14 +305,14 @@
           </div>
         </article>
 
-        <!-- A Soldier's Home -->
+        <!-- A Soldier's Home (Master's thesis) -->
         <article class="case-card">
           <div class="case-media">
-            <img src="assets/soldiershome.jpg" alt="A Soldier's Home" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=8';" />
+            <img src="assets/soldiershome.jpg" alt="A Soldier's Home — master's thesis" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=8';" />
           </div>
           <div class="case-body">
-            <h3>A Soldier's Home</h3>
-            <div class="case-meta">Documentary · Archival Research &amp; Storytelling</div>
+            <h3>A soldier's home</h3>
+            <div class="case-meta">Master's thesis · Documentary · Archival research &amp; storytelling</div>
             <div class="case-section">
               <h4>Problem</h4>
               <p>Share the lived experience of returning service members with historical context while maintaining ethical representation.</p>
@@ -266,36 +330,13 @@
                 <li>A concise, audience‑ready piece that foregrounds veteran voice and historical continuity.</li>
               </ul>
             </div>
+            <a class="btn-ext" href="https://thekeep.eiu.edu/commstudies_oer/1/" target="_blank" rel="noopener noreferrer" aria-label="Explore 'A Soldier's Home' at EIU The Keep">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
+              Explore “A soldier's home”
+            </a>
           </div>
         </article>
-
-        <!-- Preparing Veterans for the Digital Job Search -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/veterans.jpeg" alt="Preparing Veterans for the Digital Job Search" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=9';" />
-          </div>
-          <div class="case-body">
-            <h3>Preparing Veterans for the Digital Job Search</h3>
-            <div class="case-meta">Workforce Development · Training &amp; Coaching</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Veterans transitioning to civilian roles face fragmented tools, unclear expectations, and rapidly changing hiring platforms.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Hands‑on workshops covering resumes, LinkedIn optimization, and ATS‑aware applications.</li>
-                <li>Practical exercises on job search strategy, outreach scripts, and interview prep.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Clear, repeatable playbooks that improved readiness and application quality.</li>
-              </ul>
-            </div>
-          </div>
-        </article>      </div>
+      </div>
     </section>
   </main>
 
