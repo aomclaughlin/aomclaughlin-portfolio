@@ -1,347 +1,207 @@
-<!DOCTYPE html>
+Lets do back to the projects page. The images need to be smaller. Set a reasonable max pixel for a case study format. Also, please do something similar to before. Where there is a one sentence preview of each project item with an options to "Read more" that expands each item in accordion style. Lastly, add a quick navigation to each card at the top, in the same style as this page: <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Andrew O. McLaughlin, PhD – Projects</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    /* Banner styling copied from index */
-    .heading-container { position: relative; margin-bottom: 1em; }
-    .banner-box { background-color: #f0f4f8; border-left: 4px solid #0077cc; padding: 10px 15px; margin-top: 0.5em; font-style: italic; color: #333333; max-width: 600px; }
-
-    /* Keep page layout minimal; match other pages */
-    .projects { padding: 1rem; }
-    main { max-width: 1100px; margin: 0 auto; }
-
-    /* Accessibility: limit paragraph measure to ~70 characters */
-    .projects p { max-width: 70ch; }
-
-    /* Vertical case study layout (full-width, aligned) */
-    .case-list { display: flex; flex-direction: column; gap: 32px; }
-    .case-card { border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); overflow: hidden; width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
-
-    /* Consistent 16:9 media area to prevent staggering */
-    .case-media { position: relative; width: 100%; background: #f2f2f2; }
-    .case-media::before { content: ""; display: block; padding-top: 56.25%; }
-    .case-media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .case-body { padding: 16px 18px; }
-    .case-body h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; line-height: 1.3; }
-    .case-meta { font-size: 0.9rem; color: #555; margin-bottom: 0.5rem; }
-    .case-section { margin-top: 0.75rem; }
-    .case-section h4 { margin: 0 0 0.25rem 0; font-size: 1rem; }
-    .case-section ul { margin: 0.25rem 0 0 1.2rem; }
-
-    /* Buttons */
-    .btn-yt, .btn-ext { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid #d1d5db; text-decoration:none; font-weight:600; }
-    .btn-yt:hover, .btn-ext:hover { background:#f9fafb; }
-    .btn-yt svg, .btn-ext svg { width:18px; height:18px; fill: currentColor; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Andrew O. McLaughlin, PhD – Resume/CV</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
+<header>
     <nav>
-      <a href="index.html">About</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="resume.html">Resume/CV</a>
-      <a href="presentations.html">Presentations</a>
-      <a href="classes-taught.html">Classes Taught</a>
-      <a href="classes-taken.html">Classes Taken</a>
-      <a href="contact.html">Contact</a>
+        <a href="index.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html" class="active">Resume/CV</a>
+        <a href="presentations.html">Presentations</a>
+        <a href="classes-taught.html">Classes Taught</a>
+        <a href="classes-taken.html">Classes Taken</a>
+        <a href="contact.html">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <main>
-    <section class="projects">
-      <div class="heading-container">
-        <h1>Projects</h1>
+<main>
+    <section class="resume">
+        <h1>Resume &amp; CV</h1>
         <div class="banner-box">
-          Browse selected projects across federal public health, state government, research, teaching, and documentary work.
+            Extended version of my resume, including expanded sections, volunteer experience, and military service.
         </div>
-      </div>
 
-      <div class="case-list">
-        <!-- CDC Clean Slate + Tobacco Website Redesign (latest) -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=1';" />
-          </div>
-          <div class="case-body">
-            <h3>CDC “Clean Slate” &amp; tobacco website redesign — Office on Smoking and Health</h3>
-            <div class="case-meta">Federal public health · Content architecture &amp; UX</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Inconsistent page patterns and complex information architecture made it harder for audiences to find program content and for teams to maintain it.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Unified component patterns (headers, intros, CTAs, related content) into modular templates.</li>
-                <li>Refined navigation and headings for clarity and accessibility.</li>
-                <li>Facilitated cross‑team reviews and documented standards for reuse.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Improved content consistency and scannability across OSH pages.</li>
-                <li>Reduced editorial effort for updates and new page builds.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <!-- In-page navigation -->
+        <nav class="resume-nav">
+            <ul>
+                <li><a href="#career-highlights">Career Highlights</a></li>
+                <li><a href="#core-competencies">Core Competencies</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#professional-development">Professional Development</a></li>
+                <li><a href="#volunteer">Volunteer Experience</a></li>
+                <li><a href="#military">Military Service</a></li>
+                <li><a href="#technical">Technical Skills</a></li>
+                <li><a href="#awards">Awards &amp; Recognition</a></li>
+            </ul>
+        </nav>
 
-        <!-- STATE System UAT -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=2';" />
-          </div>
-          <div class="case-body">
-            <h3>STATE System — UAT for commercial tobacco surveillance</h3>
-            <div class="case-meta">Federal public health · Data QA &amp; UAT</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Potential mismatches between backend data and UI filters/labels could mislead users and undermine trust in visualizations.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>End‑to‑end test cases across filters, views, exports, and map layers.</li>
-                <li>Defect logging with repro steps; partnered with devs to resolution.</li>
-                <li>Spot checks on units, labels, and source notes.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Higher confidence in data integrity and UI behavior pre‑launch.</li>
-                <li>Smoother handoff to content and analytics teams.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <!-- Summary -->
+        <section>
+            <p>Digital communications strategist, UX researcher, technical advisor, and US Army veteran with 14+ years of experience providing leadership during strategic communication campaigns, digital modernization projects, and helping executive leaders use data insights to make decisions. Proven track record of coordinating technical and non-technical teams to develop and execute comprehensive communication strategies that instill customer awareness and trust.</p>
+        </section>
 
-        <!-- MCRC UAT -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=3';" />
-          </div>
-          <div class="case-body">
-            <h3>Media Campaign Resource Center (MCRC) — catalog &amp; admin UAT</h3>
-            <div class="case-meta">Federal public health · Catalog QA &amp; workflow</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Customers needed reliable search and preview; staff required a stable order intake and processing workflow.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Tested relevance, filters, pagination, and media previews on the catalog side.</li>
-                <li>Validated admin form fields, states, notifications, and data capture.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Reduced ordering friction for customers and fewer admin errors.</li>
-                <li>Clearer metadata supporting search and retrieval.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <!-- Career Highlights -->
+        <section>
+            <h2 id="career-highlights">Career Highlights</h2>
+            <ul>
+                <li>Crisis communication leadership: Served as communication strategist on interagency COVID-19 emergency management task force, tracking critical public health data to inform state leaders and the public.</li>
+                <li>Translating data into strategic narratives: Produced performance reports to senior leadership on national <em>Tips From Former Smokers®</em> campaign, using raw metrics to provide insights on ROI and campaign success.</li>
+                <li>Managed CDC.gov relaunch for division, assigning work to 16 staff, developing SOPs, and facilitating decision points and cross-division collaboration; built dashboards and workflow tools to track key metrics.</li>
+                <li>Conducted UX research on internal and external web applications with usability testing, discovery interviews, and surveys supporting 160 staff, external researchers, and the public.</li>
+                <li>Outreach &amp; Marketing Strategist: Increased veteran employment program participation by 200% using audience segmentation, event marketing, and social media channels.</li>
+            </ul>
+        </section>
 
-        <!-- Dissertation (PhD) -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/Dissertation.png" alt="PhD dissertation cover" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=10';" />
-          </div>
-          <div class="case-body">
-            <h3>Representation and Exploitation of War and Conflict: Publicly Appropriable Media as Low Hanging Fruit</h3>
-            <div class="case-meta">PhD dissertation · University of Oregon · 2024</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>How do platform incentives, legal regimes, and archival access shape the exploitation and circulation of graphic war media online?</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Historical analysis of shock media across formats and decades, with attention to the publicly appropriable archive (PAM).</li>
-                <li>Examined impacts of U.S. policy (e.g., Section 230) on distribution and monetization.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Framework for evaluating ethical representation of conflict imagery; highlighted alternatives such as Dattalion.</li>
-              </ul>
-            </div>
-            <a class="btn-ext" href="https://scholarsbank.uoregon.edu/items/1b3aea3b-803b-465f-bdd9-bfe684c9f7fb" target="_blank" rel="noopener noreferrer" aria-label="Read dissertation in University of Oregon Scholars' Bank">
-              <!-- link icon -->
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-              Read dissertation
-            </a>
-          </div>
-        </article>
+        <!-- Core Competencies -->
+        <section>
+            <h2 id="core-competencies">Core Competencies</h2>
+            <ul>
+                <li>Strategic Communication Planning</li>
+                <li>Brand &amp; Marketing Strategy</li>
+                <li>Data-driven Storytelling</li>
+                <li>Project Management; Cross-functional Team Leadership</li>
+                <li>UX Research &amp; Design; Accessibility (WCAG, Section 508)</li>
+                <li>Content &amp; Data Governance; Content Lifecycle Management</li>
+                <li>SEO &amp; Analytics; KPI Analysis; Conversion Rate Optimization</li>
+                <li>Plain &amp; Inclusive Language; Editorial Judgment; Style Guides</li>
+                <li>Paid Media; Audience Segmentation; Media &amp; Public Relations</li>
+            </ul>
+        </section>
 
-        <!-- COVID-19 Emergency Management Task Force -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/COVID.jpeg" alt="COVID-19 emergency management task force" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=7';" />
-          </div>
-          <div class="case-body">
-            <h3>COVID-19 emergency management task force</h3>
-            <div class="case-meta">State public health · Emergency ops &amp; communications</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Rapidly evolving public health conditions required coordinated decision‑making, clear roles, and timely communication across agencies and stakeholders.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Supported task force stand‑ups with action logs, owners, and deadlines.</li>
-                <li>Codified intake → triage → approval → publish workflows for guidance and updates.</li>
-                <li>Partnered with SMEs to translate technical changes into plain‑language briefs.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Reduced cycle time from request to public update and fewer bottlenecks.</li>
-                <li>Consistent record of decisions, improving accountability and after‑action reviews.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <!-- Work Experience -->
+        <section>
+            <h2 id="work-experience">Work Experience</h2>
 
-        <!-- COVID-19 workflow tool -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=6';" />
-          </div>
-          <div class="case-body">
-            <h3>Building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
-            <div class="case-meta">State public health · Workflow &amp; automation</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Rapid guidance changes risked missed updates, unclear ownership, and delays to publication.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Microsoft Lists workflow with fields for source, audience, priority, and change type.</li>
-                <li>Saved views/filters for owners; notifications for assignments and due dates.</li>
-                <li>History log to support QA and leadership reporting.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Clear triage and ownership; faster turnaround on content updates.</li>
-                <li>Traceable audit trail for retrospectives and compliance.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+            <article>
+                <h3>Senior Digital Strategist, Centers for Disease Control and Prevention</h3>
+                <p><strong>Atlanta, Georgia</strong> | Aug. 2023 – Present</p>
+                <ul>
+                    <li>Supervised work of 16 staff migrating 178 scientific web pages to new CMS, improving content, SEO, and accessibility.</li>
+                    <li>Led audits and optimization projects for 5 websites, 1,000+ assets, reducing volume by 40%.</li>
+                    <li>Analyzed KPIs across media platforms; presented findings at branch meetings.</li>
+                    <li>Executed usability testing for web apps undergoing modernization.</li>
+                    <li>Coordinated with HHS on paid media campaigns for the 2024 Surgeon General’s Report.</li>
+                    <li>Managed AI writing tools within CDC’s AI Community of Practice.</li>
+                </ul>
+            </article>
 
-        <!-- Veterans job search training -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/veterans.jpeg" alt="Preparing veterans for the digital job search" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=9';" />
-          </div>
-          <div class="case-body">
-            <h3>Preparing veterans for the digital job search</h3>
-            <div class="case-meta">Workforce development · Training &amp; coaching</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Veterans transitioning to civilian roles face fragmented tools, unclear expectations, and rapidly changing hiring platforms.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Hands‑on workshops covering resumes, LinkedIn optimization, and ATS‑aware applications.</li>
-                <li>Practical exercises on job search strategy, outreach scripts, and interview prep.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Clear, repeatable playbooks that improved readiness and application quality.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+            <article>
+                <h3>Communications Content Strategist, Wisconsin Department of Health Services</h3>
+                <p><strong>Madison, Wisconsin</strong> | Dec. 2021 – Aug. 2023</p>
+                <ul>
+                    <li>Authored crisis communication plans with WI National Guard, Emergency Management, and Governor’s Office.</li>
+                    <li>Developed Agile-based workflow apps; published 350+ fact sheets and webpages.</li>
+                    <li>Edited and tracked newsletters to 60,000 recipients with 50% open rate.</li>
+                    <li>Developed approval tracking tools and conducted UX research with 60+ staff.</li>
+                </ul>
+            </article>
 
-        <!-- Star Worlds with YouTube link -->
-        <article class="case-card">
-          <div class="case-media">
-            <a href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
-              <img src="https://img.youtube.com/vi/eALYKWhwpTw/hqdefault.jpg" alt="Star Worlds — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=4';" />
-            </a>
-          </div>
-          <div class="case-body">
-            <h3>Star Worlds</h3>
-            <div class="case-meta">Documentary · Production &amp; research</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Tell a community’s story around arcade culture with ethical field production and accessible delivery.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Coordinated releases, archival research, and on‑site production logistics.</li>
-                <li>Managed post‑production schedules and deliverables; prepared captions/transcripts.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>Completed trailer and materials that foreground context and accessibility.</li>
-              </ul>
-            </div>
-            <a class="btn-yt" href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2c-.3-1.2-1.2-2.1-2.4-2.4C19 3.4 12 3.4 12 3.4s-7 0-9.1.4C1.7 4.2.8 5.1.5 6.3 0 8.5 0 12 0 12s0 3.5.5 5.7c.3 1.2 1.2 2.1 2.4 2.4 2.1.4 9.1.4 9.1.4s7 0 9.1-.4c1.2-.3 2.1-1.2 2.4-2.4.5-2.2.5-5.7.5-5.7s0-3.5-.5-5.7zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"></path></svg>
-              Watch Trailer on YouTube
-            </a>
-          </div>
-        </article>
+            <article>
+                <h3>Strategic Communication Instructor &amp; Student Project Advisor, University of Oregon</h3>
+                <p><strong>Eugene, Oregon</strong> | Sept. 2015 – June 2021</p>
+                <ul>
+                    <li>Directed 20+ student groups delivering media packages for local non-profits.</li>
+                    <li>Taught multimedia production, UX writing, branding, PR, and copyright law.</li>
+                    <li>Created syllabi, lesson plans, assessments, and digital instructional modules.</li>
+                </ul>
+            </article>
 
-        <!-- A Soldier's Home (Master's thesis) -->
-        <article class="case-card">
-          <div class="case-media">
-            <img src="assets/soldiershome.jpg" alt="A Soldier's Home — master's thesis" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/900/400?random=8';" />
-          </div>
-          <div class="case-body">
-            <h3>A soldier's home</h3>
-            <div class="case-meta">Master's thesis · Documentary · Archival research &amp; storytelling</div>
-            <div class="case-section">
-              <h4>Problem</h4>
-              <p>Share the lived experience of returning service members with historical context while maintaining ethical representation.</p>
-            </div>
-            <div class="case-section">
-              <h4>Solution</h4>
-              <ul>
-                <li>Combined archival materials with contemporary interviews and visuals.</li>
-                <li>Developed consent/clarification workflows and accessibility‑ready outputs.</li>
-              </ul>
-            </div>
-            <div class="case-section">
-              <h4>Outcome</h4>
-              <ul>
-                <li>A concise, audience‑ready piece that foregrounds veteran voice and historical continuity.</li>
-              </ul>
-            </div>
-            <a class="btn-ext" href="https://thekeep.eiu.edu/commstudies_oer/1/" target="_blank" rel="noopener noreferrer" aria-label="Explore 'A Soldier's Home' at EIU The Keep">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-              Explore “A soldier's home”
-            </a>
-          </div>
-        </article>
-      </div>
+            <article>
+                <h3>Co-owner, White Light Creatives Photography &amp; Videography</h3>
+                <p><strong>Chicago, Illinois</strong> | Mar. 2013 – Nov. 2015</p>
+                <ul>
+                    <li>Directed company branding and social media launch; maintained WordPress site.</li>
+                    <li>Shot and edited wedding videos and photos; licensed music and published online.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Veterans Career Coach &amp; Marketing Strategist, National Able Network</h3>
+                <p><strong>Chicago, Illinois</strong> | Nov. 2013 – Aug. 2015</p>
+                <ul>
+                    <li>Developed and executed social media strategies, increasing enrollment 200%.</li>
+                    <li>Built partnerships with 100+ corporate, government, and NGO leaders.</li>
+                    <li>Led employment workshops for 500+ veterans annually.</li>
+                    <li>Provided case management for DOL Homeless Veterans Reintegration Program grant.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2 id="education">Education</h2>
+            <ul>
+                <li><strong>PhD, Media and Communication Studies</strong> — University of Oregon, 2023<br>Focus: Mixed methods research; 11 national conferences, 26 guest lectures/workshops.</li>
+                <li><strong>MA, Communication (College Pedagogy Option)</strong> — Eastern Illinois University, 2013</li>
+                <li><strong>BA, Communication, Minor in Film Studies</strong> — Eastern Illinois University, 2010</li>
+            </ul>
+        </section>
+
+        <!-- Professional Development -->
+        <section>
+            <h2 id="professional-development">Professional Development</h2>
+            <ul>
+                <li><strong>Do Only the Research that Matters</strong> — Carol Rossi (Maven), Sep 2025</li>
+                <li><strong>An Introduction to Accessibility and Inclusive Design</strong> — University of Illinois (Coursera), Aug 2023</li>
+                <li><strong>Introduction to UX Principles &amp; Processes</strong> — University of Michigan (Coursera), Mar 2023</li>
+                <li><strong>Data Scientist &amp; AI Engineer Associate</strong> — DataCamp (in progress; expected Oct 2025)</li>
+            </ul>
+        </section>
+
+        <!-- Volunteer -->
+        <section>
+            <h2 id="volunteer">Volunteer Experience</h2>
+            <ul>
+                <li>Facilitator and Coach, OSH Job Search Group, 2025–present — lead weekly job search work team for 23 former CDC staff (fellows to SES).</li>
+                <li>Veteran Graduate Student Mentor, Peer Advisors for Veteran Education (PAVE), University of Oregon, 2019–2020.</li>
+                <li>Search Committee Member, Endowed Chair of Documentary Studies and Production, University of Oregon, 2020.</li>
+                <li>Instructor &amp; Planner, Oregon Young Scholars Program (2019) and Academy to Inspire Learning (2017) — coached high school students in multimedia and documentary projects.</li>
+            </ul>
+        </section>
+
+        <!-- Military -->
+        <section>
+            <h2 id="military">Military Service</h2>
+            <ul>
+                <li><strong>Infantry Team Leader &amp; Trainer</strong>, U.S. Army &amp; Illinois Army National Guard — Nov. 2002 to Jan. 2010. Deployed to Iraq; awarded Army Commendation Medal (2006) and Combat Infantry Badge (2005).</li>
+            </ul>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2 id="technical">Technical Skills</h2>
+            <ul>
+                <li><strong>Project Management:</strong> Jira, Agile, Kanban, AirTable, Asana, Excel, Google Suite, Smartsheet</li>
+                <li><strong>CMS/Web/UX:</strong> WordPress, Drupal, Sitecore, SharePoint, HTML, CSS, Figma, DAM, Power Automate, Accessibility (WCAG, Section 508), A/B testing</li>
+                <li><strong>Analytics:</strong> Adobe Analytics, Google Analytics (GA4), Google Search Console, Power BI, Tableau, Dashboards</li>
+                <li><strong>Creative:</strong> Adobe Creative Suite, Canva, Photography, Videography, Granicus GovDelivery, Constant Contact, VisibleThread</li>
+                <li><strong>Social:</strong> Meta, YouTube, X, Google Ads, Hootsuite, Meltwater</li>
+            </ul>
+        </section>
+
+        <!-- Awards -->
+        <section>
+            <h2 id="awards">Awards &amp; Recognition</h2>
+            <ul>
+                <li>Governor’s Certificate of Recognition – Wisconsin COVID-19 response, 2022</li>
+                <li>Kappa Tau Alpha (Mass Communication and Journalism National Honor Society), 2020</li>
+                <li>Lokey Summer Research Scholarship, 2018</li>
+                <li>Graduate Research Showcase – <em>A Soldier’s Home</em> documentary, 2013</li>
+                <li>Army Commendation Medal, U.S. Army, 2006</li>
+            </ul>
+        </section>
     </section>
-  </main>
+</main>
 
-  <footer>
-    <p>&copy; 2025 Andrew O. McLaughlin, PhD</p>
-  </footer>
+<footer class="site-footer" role="contentinfo">
+    <div class="container">
+        <p>&copy; 2025 Andrew O. McLaughlin, PhD</p>
+    </div>
+</footer>
 </body>
 </html>
