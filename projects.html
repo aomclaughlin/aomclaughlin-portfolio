@@ -5,46 +5,76 @@
   <title>Andrew O. McLaughlin, PhD – Projects</title>
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    /* --- Minimal inline styles so this page works even if external CSS isn't updated --- */
-    /* Banner */
+    /* ===== Global (revert to your last good iteration) ===== */
+    body {
+      font-family: 'Century Gothic', Arial, sans-serif;
+      background: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    header { border-bottom: 2px solid #0074D9; background: #fff; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 1.2rem 0; }
+    nav a { text-decoration: none; color: #111; font-size: 1.05rem; padding: 0.25rem 0.7rem; border-radius: 3px; transition: background 0.2s, color 0.2s; }
+    nav a.active, nav a:hover { color: #fff; background: #0074D9; }
+
+    main { max-width: 700px; margin: 3rem auto; padding: 0 1.5rem; }
+
+    /* Headings */
+    h1 { font-weight: normal; color: #000; font-size: 2rem; line-height: 1.2; }
+    h2 { font-weight: normal; color: #0074D9; font-size: 1.75rem; line-height: 1.2; }
+    h3 { font-weight: normal; color: #0074D9; }
+
+    /* In-page navigation (shared with resume) */
+    .resume-nav { margin: 1.5rem 0; padding: 1rem; background: #f7f9fb; border-left: 4px solid #0074D9; }
+    .resume-nav ul { list-style: none; padding-left: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 1rem 2rem; }
+    .resume-nav a { color: #0074D9; text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: border 0.2s; }
+    .resume-nav a:hover { border-bottom: 1px solid #0074D9; }
+
+    /* Lists */
+    .resume ul { list-style: disc; padding-left: 1.5rem; }
+    li { margin-bottom: 1.2rem; }
+
+    /* Footer */
+    footer { text-align: center; padding: 2rem 0 1rem 0; color: #888; font-size: 0.95rem; }
+
+    /* Classes Taken page helpers (safe to keep) */
+    .classes-taken ul { list-style: disc; list-style-position: inside; padding-left: 1rem; margin: 0; }
+    .classes-taken li { margin-bottom: 0.6rem; }
+
+    /* Read-more defaults (used on Projects too) */
+    .read-more summary { cursor: pointer; color: #0074D9; font-weight: bold; margin-top: 1rem; text-decoration: underline; list-style: none; }
+    .read-more summary::-webkit-details-marker { display: none; }
+    .read-more[open] summary { text-decoration: none; }
+    .read-more-content { margin-top: 1rem; }
+
+    /* ===== Projects page components (scoped) ===== */
     .heading-container { position: relative; margin-bottom: 1em; }
-    .banner-box { background:#f0f4f8; border-left:4px solid #0077cc; padding:10px 15px; margin-top:0.5em; font-style:italic; color:#333; max-width:600px; }
+    .banner-box { background-color: #f0f4f8; border-left: 4px solid #0077cc; padding: 10px 15px; margin-top: 0.5em; font-style: italic; color: #333333; max-width: 600px; }
 
-    /* Quick navigation (match resume style closely) */
-    .resume-nav { margin:1.5rem 0; padding:1rem; background:#f7f9fb; border-left:4px solid #0074D9; }
-    .resume-nav ul { list-style:none; padding-left:0; margin:0; display:flex; flex-wrap:wrap; gap:1rem 2rem; }
-    .resume-nav a { color:#0074D9; text-decoration:none; font-size:0.95rem; border-bottom:1px solid transparent; transition:border 0.2s; }
-    .resume-nav a:hover { border-bottom:1px solid #0074D9; }
+    .projects { padding: 1rem; }
+    .projects p { max-width: 70ch; }
 
-    /* Projects layout */
-    .projects p { max-width:70ch; }
-    .case-list { display:flex; flex-direction:column; gap:28px; align-items:flex-start; }
-    .case-card { border:1px solid #e5e7eb; border-radius:10px; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.04); overflow:hidden; width:auto; max-width:436px; margin:0; box-sizing:border-box; }
+    .case-list { display: flex; flex-direction: column; gap: 28px; align-items: stretch; }
 
-    /* Smaller media with fixed aspect to prevent staggering */
-    .case-media { position:relative; width:100%; max-width:400px; margin:0 auto; background:#f2f2f2; }
-    .case-media::before { content:""; display:block; padding-top:56.25%; }
-    .case-media > img, .case-media > a { position:absolute; inset:0; }
-    .case-media img { width:100%; height:100%; object-fit:cover; display:block; }
+    /* Card fills the main 700px column */
+    .case-card { border: 1px solid #e5e7eb; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); overflow: hidden; width: 100%; max-width: 700px; margin: 0; box-sizing: border-box; }
 
-    .case-body { padding:16px 18px; }
-    .case-body h3 { margin:0 0 0.5rem 0; font-size:1.25rem; line-height:1.3; color:#0074D9; font-weight:normal; }
-    .case-meta { font-size:0.9rem; color:#555; margin-bottom:0.5rem; }
-    .case-summary { margin:0.5rem 0; }
-    .case-section { margin-top:0.75rem; }
-    .case-section h4 { margin:0 0 0.25rem 0; font-size:1rem; }
-    .case-section ul { margin:0.25rem 0 0 1.2rem; }
+    /* Image track centered inside the card; bold separator; consistent 16:9 crop */
+    .case-media { position: relative; width: 100%; max-width: 640px; margin: 0 auto; border: 4px solid #000; background: #f2f2f2; aspect-ratio: 16 / 9; }
+    .case-media > img, .case-media > a { display: block; width: 100%; height: 100%; }
+    .case-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .case-body { padding: 16px 18px; }
+    .case-body h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; line-height: 1.3; }
+    .case-meta { font-size: 0.9rem; color: #555; margin-bottom: 0.5rem; }
+    .case-summary { margin: 0.5rem 0; }
 
     /* Buttons */
-    .btn-yt, .btn-ext { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; border:1px solid #d1d5db; text-decoration:none; font-weight:600; }
-    .btn-yt:hover, .btn-ext:hover { background:#f9fafb; }
-    .btn-yt svg, .btn-ext svg { width:18px; height:18px; fill:currentColor; }
-
-    /* Read more accordion */
-    .read-more summary { cursor:pointer; color:#0074D9; font-weight:600; text-decoration:underline; list-style:none; margin-top:0.5rem; }
-    .read-more summary::-webkit-details-marker { display:none; }
-    .read-more[open] summary { text-decoration:none; }
-    .case-card .case-body p { max-width: 100%; }
+    .btn-yt, .btn-ext { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; border: 1px solid #d1d5db; text-decoration: none; font-weight: 600; }
+    .btn-yt:hover, .btn-ext:hover { background: #f9fafb; }
+    .btn-yt svg, .btn-ext svg { width: 18px; height: 18px; fill: currentColor; }
   </style>
 </head>
 <body>
@@ -70,17 +100,17 @@
       </div>
 
         <!-- In-page quick navigation (same style as resume) -->
-        <nav class="resume-nav">
+        <nav class="resume-nav" aria-label="Project quick navigation">
           <ul>
-            <li><a href="#cdc-clean-slate">CDC “Clean Slate” &amp; tobacco website redesign</a></li>
-            <li><a href="#state-system-uat">STATE System UAT</a></li>
-            <li><a href="#mcrc-uat">MCRC catalog &amp; admin UAT</a></li>
+            <li><a href="#cdc-clean-slate">CDC Clean Slate &amp; tobacco website redesign</a></li>
+            <li><a href="#state-mcrc-modernization">State System &amp; MCRC — content and data modernization</a></li>
             <li><a href="#dissertation">PhD dissertation</a></li>
             <li><a href="#covid-task-force">COVID-19 task force</a></li>
             <li><a href="#covid-workflow-tool">COVID-19 workflow tool</a></li>
             <li><a href="#veterans-job-search">Veterans job search training</a></li>
             <li><a href="#star-worlds">Star Worlds</a></li>
-            <li><a href="#a-soldiers-home">A soldier's home</a></li>
+            <li><a href="#a-soldiers-home">A Soldier's Home</a></li>
+            <li><a href="#body-worn-cameras">Body‑worn cameras: qualitative research &amp; documentary project</a></li>
           </ul>
         </nav>
 
@@ -88,98 +118,55 @@
         <!-- CDC Clean Slate + Tobacco Website Redesign (latest) -->
         <article id="cdc-clean-slate" class="case-card">
           <div class="case-media">
-            <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=1';" />
+            <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
-            <h3>CDC “Clean Slate” &amp; tobacco website redesign — Office on Smoking and Health</h3>
+            <h3>CDC Clean Slate &amp; tobacco website redesign — <a href="https://www.cdc.gov/tobacco/index.html" target="_blank" rel="noopener noreferrer">Office on Smoking and Health</a></h3>
             <div class="case-meta">Federal public health · Content architecture &amp; UX</div>
-            <p class="case-summary">Unified component patterns and page templates to modernize IA and improve content consistency across OSH programs.</p>
+            <p class="case-summary">Directed division migration to CDC.gov’s new CMS and modernized patterns to improve findability and maintenance.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Inconsistent page patterns and complex information architecture made it harder for audiences to find program content and for teams to maintain it.</p>
-              </div>
-              <div class="case-section">
-                <h4>Solution</h4>
+                <h4>My role</h4>
                 <ul>
-                  <li>Unified component patterns (headers, intros, CTAs, related content) into modular templates.</li>
-                  <li>Refined navigation and headings for clarity and accessibility.</li>
-                  <li>Facilitated cross‑team reviews and documented standards for reuse.</li>
+                  <li>Assigned and supervised work for <strong>16 staff</strong> migrating <strong>178 pages</strong>; authored SOPs and decision logs.</li>
+                  <li>Led audits and optimization across 5 sites/1,000+ assets, <strong>reducing volume ~40%</strong> while improving SEO/508.</li>
+                  <li>Ran usability tests, analyzed KPIs, and briefed branch leadership on performance insights.</li>
                 </ul>
               </div>
               <div class="case-section">
                 <h4>Outcome</h4>
                 <ul>
-                  <li>Improved content consistency and scannability across OSH pages.</li>
-                  <li>Reduced editorial effort for updates and new page builds.</li>
+                  <li>Reusable, accessible page templates; faster page builds and clearer governance.</li>
                 </ul>
               </div>
             </details>
           </div>
         </article>
 
-        <!-- STATE System UAT -->
-        <article id="state-system-uat" class="case-card">
+        <!-- State System & MCRC combined modernization -->
+        <article id="state-mcrc-modernization" class="case-card">
           <div class="case-media">
-            <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=2';" />
+            <img src="assets/Statesystem.png" alt="State System & MCRC content and data modernization" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
-            <h3>STATE System — UAT for commercial tobacco surveillance</h3>
-            <div class="case-meta">Federal public health · Data QA &amp; UAT</div>
-            <p class="case-summary">Validated data alignment with UI filters and ensured map visualizations behaved predictably before release.</p>
+            <h3><a href="https://www.cdc.gov/statesystem/" target="_blank" rel="noopener noreferrer">STATE System</a> &amp; <a href="https://nccd.cdc.gov/mcrc/index.aspx" target="_blank" rel="noopener noreferrer">MCRC</a> — content and data modernization</h3>
+            <div class="case-meta">Federal public health · Data quality, catalog UX &amp; content governance</div>
+            <p class="case-summary">Hardened data integrity and improved catalog/search UX while documenting scalable content patterns.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Potential mismatches between backend data and UI filters/labels could mislead users and undermine trust in visualizations.</p>
-              </div>
-              <div class="case-section">
-                <h4>Solution</h4>
+                <h4>My role</h4>
                 <ul>
-                  <li>End‑to‑end test cases across filters, views, exports, and map layers.</li>
-                  <li>Defect logging with repro steps; partnered with devs to resolution.</li>
-                  <li>Spot checks on units, labels, and source notes.</li>
+                  <li>Executed end‑to‑end UAT of filters, map layers, exports; logged defects with repro steps to acceptance.</li>
+                  <li>Standardized labels, units, and source notes; tightened metadata for retrieval and analytics.</li>
+                  <li>Evaluated catalog relevance/pagination; improved admin order intake states and notifications.</li>
                 </ul>
               </div>
               <div class="case-section">
                 <h4>Outcome</h4>
                 <ul>
-                  <li>Higher confidence in data integrity and UI behavior pre‑launch.</li>
-                  <li>Smoother handoff to content and analytics teams.</li>
-                </ul>
-              </div>
-            </details>
-          </div>
-        </article>
-
-        <!-- MCRC UAT -->
-        <article id="mcrc-uat" class="case-card">
-          <div class="case-media">
-            <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=3';" />
-          </div>
-          <div class="case-body">
-            <h3>Media Campaign Resource Center (MCRC) — catalog &amp; admin UAT</h3>
-            <div class="case-meta">Federal public health · Catalog QA &amp; workflow</div>
-            <p class="case-summary">Tested catalog search relevance and admin order intake to reduce friction for users and staff.</p>
-            <details class="read-more">
-              <summary>Read more</summary>
-              <div class="case-section">
-                <h4>Problem</h4>
-                <p>Customers needed reliable search and preview; staff required a stable order intake and processing workflow.</p>
-              </div>
-              <div class="case-section">
-                <h4>Solution</h4>
-                <ul>
-                  <li>Tested relevance, filters, pagination, and media previews on the catalog side.</li>
-                  <li>Validated admin form fields, states, notifications, and data capture.</li>
-                </ul>
-              </div>
-              <div class="case-section">
-                <h4>Outcome</h4>
-                <ul>
-                  <li>Reduced ordering friction for customers and fewer admin errors.</li>
-                  <li>Clearer metadata supporting search and retrieval.</li>
+                  <li>Higher trust in STATE data visualizations and fewer MCRC ordering errors.</li>
                 </ul>
               </div>
             </details>
@@ -189,7 +176,7 @@
         <!-- Dissertation (PhD) -->
         <article id="dissertation" class="case-card">
           <div class="case-media">
-            <img src="assets/Dissertation.png" alt="PhD dissertation cover" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=10';" />
+            <img src="assets/Dissertation.png" alt="PhD dissertation cover" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
             <h3>Representation and Exploitation of War and Conflict: Publicly Appropriable Media as Low Hanging Fruit</h3>
@@ -225,31 +212,35 @@
         <!-- COVID-19 Emergency Management Task Force -->
         <article id="covid-task-force" class="case-card">
           <div class="case-media">
-            <img src="assets/COVID.jpeg" alt="COVID-19 emergency management task force" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=7';" />
+            <img src="assets/COVID.jpeg" alt="COVID-19 emergency management task force" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
             <h3>COVID-19 emergency management task force</h3>
             <div class="case-meta">State public health · Emergency ops &amp; communications</div>
-            <p class="case-summary">Coordinated decision‑making and communication workflows to move guidance from intake to public update quickly.</p>
+            <p class="case-summary">Supported interagency coordination and rapid guidance translation to keep leadership and the public aligned.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Rapidly evolving public health conditions required coordinated decision‑making, clear roles, and timely communication across agencies and stakeholders.</p>
+                <h4>My role</h4>
+                <ul>
+                  <li>Authored crisis communication plans with WI National Guard, Emergency Management, and the Governor’s Office.</li>
+                  <li>Maintained action logs, owners, and deadlines; codified intake → triage → approval → publish.</li>
+                  <li>Translated SME updates into plain‑language briefs for time‑sensitive releases.</li>
+                </ul>
               </div>
               <div class="case-section">
-                <h4>Solution</h4>
+                <h4>Selected releases &amp; resources</h4>
                 <ul>
-                  <li>Supported task force stand‑ups with action logs, owners, and deadlines.</li>
-                  <li>Codified intake → triage → approval → publish workflows for guidance and updates.</li>
-                  <li>Partnered with SMEs to translate technical changes into plain‑language briefs.</li>
+                  <li><a href="https://web.archive.org/web/20240808181354/https://www.dhs.wisconsin.gov/news/releases/031022.htm" target="_blank" rel="noopener noreferrer">DHS news release (Telehealth expansion) — Mar 10, 2022</a></li>
+                  <li><a href="https://web.archive.org/web/20250523123746/https://content.govdelivery.com/accounts/WIGOV/bulletins/308ea8a" target="_blank" rel="noopener noreferrer">Governor’s Office news release — archived</a></li>
+                  <li><a href="https://web.archive.org/web/20250421090048/https://content.govdelivery.com/accounts/WIGOV/bulletins/30580f0" target="_blank" rel="noopener noreferrer">Governor’s Office news release — archived</a></li>
+                  <li><a href="https://web.archive.org/web/20240221044357/http://www.dhs.wisconsin.gov/covid-19/telehealth.htm" target="_blank" rel="noopener noreferrer">DHS Telehealth (archived program page)</a></li>
                 </ul>
               </div>
               <div class="case-section">
                 <h4>Outcome</h4>
                 <ul>
-                  <li>Reduced cycle time from request to public update and fewer bottlenecks.</li>
-                  <li>Consistent record of decisions, improving accountability and after‑action reviews.</li>
+                  <li>Reduced cycle time for public updates; clearer accountability for after‑action reviews.</li>
                 </ul>
               </div>
             </details>
@@ -259,31 +250,26 @@
         <!-- COVID-19 workflow tool -->
         <article id="covid-workflow-tool" class="case-card">
           <div class="case-media">
-            <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=6';" />
+            <img src="assets/lists-comment.png" alt="Workflow tool to support rapidly emerging COVID-19 guidance" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
             <h3>Building an efficient workflow tool to support rapidly emerging COVID-19 guidance</h3>
             <div class="case-meta">State public health · Workflow &amp; automation</div>
-            <p class="case-summary">Built a Microsoft Lists workflow to triage, assign, and track rapid guidance changes with notifications and audit trail.</p>
+            <p class="case-summary">Launched a Microsoft Lists workflow to track rapid guidance changes with ownership, SLA, and audit trail.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Rapid guidance changes risked missed updates, unclear ownership, and delays to publication.</p>
-              </div>
-              <div class="case-section">
-                <h4>Solution</h4>
+                <h4>My role</h4>
                 <ul>
-                  <li>Microsoft Lists workflow with fields for source, audience, priority, and change type.</li>
-                  <li>Saved views/filters for owners; notifications for assignments and due dates.</li>
-                  <li>History log to support QA and leadership reporting.</li>
+                  <li>Built Agile‑based workflow apps; integrated views/alerts for assignments and due dates.</li>
+                  <li>Published <strong>350+ fact sheets and webpages</strong>; created approval‑tracking tools.</li>
+                  <li>Conducted UX research sessions with <strong>60+ staff</strong> to refine process and UI.</li>
                 </ul>
               </div>
               <div class="case-section">
                 <h4>Outcome</h4>
                 <ul>
-                  <li>Clear triage and ownership; faster turnaround on content updates.</li>
-                  <li>Traceable audit trail for retrospectives and compliance.</li>
+                  <li>Faster turnaround; traceable history supporting QA, retrospectives, and leadership reporting.</li>
                 </ul>
               </div>
             </details>
@@ -293,29 +279,26 @@
         <!-- Veterans job search training -->
         <article id="veterans-job-search" class="case-card">
           <div class="case-media">
-            <img src="assets/veterans.jpeg" alt="Preparing veterans for the digital job search" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=9';" />
+            <img src="assets/veterans.jpeg" alt="Preparing veterans for the digital job search" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
             <h3>Preparing veterans for the digital job search</h3>
             <div class="case-meta">Workforce development · Training &amp; coaching</div>
-            <p class="case-summary">Delivered workshops on resumes, LinkedIn, ATS‑aware applications, and interview prep to improve outcomes.</p>
+            <p class="case-summary">Designed and delivered job‑search training that grew participation and improved application quality.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Veterans transitioning to civilian roles face fragmented tools, unclear expectations, and rapidly changing hiring platforms.</p>
-              </div>
-              <div class="case-section">
-                <h4>Solution</h4>
+                <h4>My role</h4>
                 <ul>
-                  <li>Hands‑on workshops covering resumes, LinkedIn optimization, and ATS‑aware applications.</li>
-                  <li>Practical exercises on job search strategy, outreach scripts, and interview prep.</li>
+                  <li>Grew program participation by <strong>200%</strong> using audience segmentation and event marketing.</li>
+                  <li>Led workshops for <strong>500+ veterans annually</strong> on resumes, LinkedIn, ATS‑aware applications, and interviews.</li>
+                  <li>Built partnerships with <strong>100+ employers</strong> across corporate, government, and NGO sectors.</li>
                 </ul>
               </div>
               <div class="case-section">
                 <h4>Outcome</h4>
                 <ul>
-                  <li>Clear, repeatable playbooks that improved readiness and application quality.</li>
+                  <li>Repeatable playbooks and improved job‑readiness metrics for participants.</li>
                 </ul>
               </div>
             </details>
@@ -326,30 +309,24 @@
         <article id="star-worlds" class="case-card">
           <div class="case-media">
             <a href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
-              <img src="https://img.youtube.com/vi/eALYKWhwpTw/hqdefault.jpg" alt="Star Worlds — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=4';" />
+              <img src="https://img.youtube.com/vi/eALYKWhwpTw/hqdefault.jpg" alt="Star Worlds — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
             </a>
           </div>
           <div class="case-body">
             <h3>Star Worlds</h3>
-            <div class="case-meta">Documentary · Production &amp; research</div>
+            <div class="case-meta">Documentary · Runtime: <strong>29 minutes</strong></div>
             <p class="case-summary">Nonfiction short about community and arcade culture with emphasis on ethical production and archival care.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Tell a community’s story around arcade culture with ethical field production and accessible delivery.</p>
+                <h4>Synopsis</h4>
+                <p>A portrait of an arcade community, exploring place, continuity, and care.</p>
               </div>
               <div class="case-section">
-                <h4>Solution</h4>
+                <h4>Role</h4>
                 <ul>
-                  <li>Coordinated releases, archival research, and on‑site production logistics.</li>
-                  <li>Managed post‑production schedules and deliverables; prepared captions/transcripts.</li>
-                </ul>
-              </div>
-              <div class="case-section">
-                <h4>Outcome</h4>
-                <ul>
-                  <li>Completed trailer and materials that foreground context and accessibility.</li>
+                  <li>Production and research; coordinated releases and on‑site logistics.</li>
+                  <li>Managed post‑production schedule; prepared captions and transcripts.</li>
                 </ul>
               </div>
               <a class="btn-yt" href="https://www.youtube.com/watch?v=eALYKWhwpTw" target="_blank" rel="noopener noreferrer" aria-label="Watch Star Worlds trailer on YouTube">
@@ -363,34 +340,59 @@
         <!-- A Soldier's Home (Master's thesis) -->
         <article id="a-soldiers-home" class="case-card">
           <div class="case-media">
-            <img src="assets/soldiershome.jpg" alt="A Soldier's Home — master's thesis" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/400/225?random=8';" />
+            <img src="assets/soldiershome.jpg" alt="A Soldier's Home — master's thesis" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
           </div>
           <div class="case-body">
-            <h3>A soldier's home</h3>
-            <div class="case-meta">Master's thesis · Documentary · Archival research &amp; storytelling</div>
-            <p class="case-summary">Master’s thesis combining archival materials and interviews to foreground veteran voice and historical continuity.</p>
+            <h3>A Soldier's Home</h3>
+            <div class="case-meta">Documentary (master's thesis) · Runtime: <strong>59 minutes</strong></div>
+            <p class="case-summary">Combines archival materials and interviews to foreground veteran voice and historical continuity.</p>
             <details class="read-more">
               <summary>Read more</summary>
               <div class="case-section">
-                <h4>Problem</h4>
-                <p>Share the lived experience of returning service members with historical context while maintaining ethical representation.</p>
+                <h4>Synopsis</h4>
+                <p>A long‑form documentary examining the transition home and the stories we inherit about service and belonging.</p>
               </div>
               <div class="case-section">
-                <h4>Solution</h4>
+                <h4>Role</h4>
                 <ul>
-                  <li>Combined archival materials with contemporary interviews and visuals.</li>
-                  <li>Developed consent/clarification workflows and accessibility‑ready outputs.</li>
-                </ul>
-              </div>
-              <div class="case-section">
-                <h4>Outcome</h4>
-                <ul>
-                  <li>A concise, audience‑ready piece that foregrounds veteran voice and historical continuity.</li>
+                  <li>Archival research, interviews, and edit; developed consent workflows and accessibility‑ready outputs.</li>
                 </ul>
               </div>
               <a class="btn-ext" href="https://thekeep.eiu.edu/commstudies_oer/1/" target="_blank" rel="noopener noreferrer" aria-label="Explore 'A Soldier's Home' at EIU The Keep">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"></path></svg>
-                Explore “A soldier's home”
+                Explore “A Soldier's Home”
+              </a>
+            </details>
+          </div>
+        </article>
+
+        <!-- Body-worn cameras: qualitative research & documentary project -->
+        <article id="body-worn-cameras" class="case-card">
+          <div class="case-media">
+            <a href="https://youtu.be/8DtVNxvYKUg" target="_blank" rel="noopener noreferrer" aria-label="Watch body-worn cameras project on YouTube">
+              <img src="https://img.youtube.com/vi/8DtVNxvYKUg/hqdefault.jpg" alt="Body-worn Cameras project — YouTube thumbnail" loading="lazy" onerror="this.onerror=null;this.src='assets/placeholder-640x360.png';" />
+            </a>
+          </div>
+          <div class="case-body">
+            <h3>Body‑worn cameras: qualitative research &amp; documentary project</h3>
+            <div class="case-meta">Qualitative research · Documentary</div>
+            <p class="case-summary">Interviewed <strong>4 police officers</strong> across <strong>3 Eugene, OR departments</strong> to surface challenges obtaining body‑worn cameras through grants and competitive processes.</p>
+            <details class="read-more">
+              <summary>Read more</summary>
+              <div class="case-section">
+                <h4>Synopsis</h4>
+                <p>Explores procurement hurdles, grant dependencies, and policy tradeoffs that shape camera adoption timelines.</p>
+              </div>
+              <div class="case-section">
+                <h4>Role</h4>
+                <ul>
+                  <li>Designed interview protocol; conducted, transcribed, and coded interviews.</li>
+                  <li>Produced documentary short summarizing findings and stakeholder perspectives.</li>
+                </ul>
+              </div>
+              <a class="btn-yt" href="https://youtu.be/8DtVNxvYKUg" target="_blank" rel="noopener noreferrer" aria-label="Watch body-worn cameras documentary on YouTube">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2c-.3-1.2-1.2-2.1-2.4-2.4C19 3.4 12 3.4 12 3.4s-7 0-9.1.4C1.7 4.2.8 5.1.5 6.3 0 8.5 0 12 0 12s0 3.5.5 5.7c.3 1.2 1.2 2.1 2.4 2.4 2.1.4 9.1.4 9.1.4s7 0 9.1-.4c1.2-.3 2.1-1.2 2.4-2.4.5-2.2.5-5.7.5-5.7s0-3.5-.5-5.7zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"></path></svg>
+                Watch Trailer on YouTube
               </a>
             </details>
           </div>
