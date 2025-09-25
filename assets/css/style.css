@@ -1,72 +1,253 @@
-/* === Base layout === */
-:root {
-  --accent: #0077cc;
-  --banner-bg: #f0f4f8;
-  --text: #333333;
-}
+/* ================================
+   Global Site Styles
+   ================================ */
 
-html, body {
+html, body { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Century Gothic', Arial, sans-serif;
+  background: #fff;
+  color: #111;
   margin: 0;
   padding: 0;
 }
 
-body {
-  color: var(--text);
-  line-height: 1.6;
+header {
+  border-bottom: 2px solid #0074D9;
+  background: #fff;
 }
 
-/* Constrain main text sections site-wide to 700px */
-.resume,
-.presentations,
-.content,
-.page-body {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 1rem; /* nice gutter on small screens */
-  box-sizing: border-box;
-}
-
-/* Top nav (kept minimal; retain your existing styles if you have them) */
-header nav {
+nav {
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
 }
 
-/* Resume in-page nav chips */
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-size: 1.05rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a.active,
+nav a:hover {
+  color: #fff;
+  background: #0074D9;
+}
+
+main {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Headings */
+h1 {
+  font-weight: normal;
+  color: #000;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-weight: normal;
+  color: #0074D9;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-weight: normal;
+  color: #0074D9;
+}
+
+/* In-page navigation (shared with Resume + Projects) */
+.resume-nav {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f7f9fb;
+  border-left: 4px solid #0074D9;
+}
+
 .resume-nav ul {
   list-style: none;
   padding-left: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem 1rem;
-  margin: 1rem 0;
+  gap: 1rem 2rem;
 }
 
 .resume-nav a {
+  color: #0074D9;
   text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+  transition: border 0.2s;
 }
 
-/* Reusable banner box (moved from inline <style> to CSS) */
+.resume-nav a:hover {
+  border-bottom: 1px solid #0074D9;
+}
+
+/* Lists */
+.resume ul { list-style: disc; padding-left: 1.5rem; }
+li { margin-bottom: 1.2rem; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+/* Classes Taken page helpers */
+.classes-taken ul {
+  list-style: disc;
+  list-style-position: inside;
+  padding-left: 1rem;
+  margin: 0;
+}
+.classes-taken li { margin-bottom: 0.6rem; }
+
+/* Read-more (used across pages, including Projects) */
+.read-more summary {
+  cursor: pointer;
+  color: #0074D9;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-decoration: underline;
+  list-style: none;
+}
+.read-more summary::-webkit-details-marker { display: none; }
+.read-more[open] summary { text-decoration: none; }
+.read-more-content { margin-top: 1rem; }
+
+/* ================================
+   Shared Components (Banner)
+   ================================ */
+
+.heading-container { position: relative; margin-bottom: 1em; }
+
 .banner-box {
-  background-color: var(--banner-bg);
-  border-left: 4px solid var(--accent);
+  background-color: #f0f4f8;
+  border-left: 4px solid #0077cc;
   padding: 10px 15px;
   margin-top: 0.5em;
   font-style: italic;
-  color: var(--text);
-  width: 100%;          /* fill the content column width */
+  color: #333333;
+  max-width: 600px;
+}
+
+/* ================================
+   Projects Page Components
+   (scoped to avoid global overrides)
+   ================================ */
+
+.projects { padding: 1rem; }
+
+/* Accessibility: comfortable measure for paragraph text */
+.projects p { max-width: 70ch; }
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: stretch; /* flush left inside the 700px column */
+}
+
+/* Card fills the main column; do not exceed page width */
+.case-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  overflow: hidden;
+  width: 100%;
+  max-width: 700px;
+  margin: 0;
   box-sizing: border-box;
 }
 
-/* Optional: bottom CV note spacing */
-.cv-note {
-  margin: 2rem 0 0;
+/* Image track centered inside the card; bold border; consistent 16:9 crop */
+.case-media {
+  position: relative;
+  width: 100%;
+  max-width: 640px;     /* image width inside the 700px card */
+  margin: 0 auto;       /* center image in the card */
+  border: 4px solid #000;
+  background: #f2f2f2;
+  aspect-ratio: 16 / 9; /* modern browsers */
 }
 
-/* Basic footer */
-footer,
-.site-footer {
-  padding: 2rem 1rem;
-  text-align: center;
+/* Ensure anchor-wrapped thumbnails fill the frame */
+.case-media > img,
+.case-media > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Cover fill to avoid staggering and letterboxing */
+.case-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.case-body { padding: 16px 18px; }
+
+.case-body h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.case-meta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.case-summary { margin: 0.5rem 0; }
+
+/* Buttons (YouTube / external) */
+.btn-yt,
+.btn-ext {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-yt:hover,
+.btn-ext:hover { background: #f9fafb; }
+
+.btn-yt svg,
+.btn-ext svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* ================================
+   Small-screen niceties (optional)
+   ================================ */
+
+@media (max-width: 480px) {
+  nav { gap: 0.75rem; }
+  .resume-nav ul { gap: 0.5rem 1rem; }
+  .case-body { padding: 14px 14px; }
+  .case-media { max-width: 100%; } /* let images breathe on very small screens */
 }
