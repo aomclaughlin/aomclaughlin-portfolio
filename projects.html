@@ -75,7 +75,7 @@
     details[open] summary { margin-bottom: 0.5rem; }
     details p, details ul { margin-top: 0.25rem; }
 
-    /* Header nav */
+    /* Simple responsive tweak for the header nav */
     header nav {
       display: flex;
       flex-wrap: wrap;
@@ -122,7 +122,7 @@
       </div>
 
       <div class="projects-grid">
-        <!-- Combined CDC design/IA/UX card (unchanged from prior draft) -->
+        <!-- Combined CDC card -->
         <article class="project-card">
           <img src="assets/side-by-side-comparison.png" alt="Design components and page templates used in CDC OSH site modernization" loading="lazy" />
           <div class="project-card-body">
@@ -142,26 +142,42 @@
           </div>
         </article>
 
-        <!-- UPDATED: Consolidated UAT case study card with screenshot (replaces separate STATE System & MCRC UAT cards) -->
+        <!-- STATE System UAT -->
         <article class="project-card">
-          <img src="assets/Statesystem.png" alt="Screenshot of CDC STATE System interface used during UAT" loading="lazy" />
+          <img src="assets/placeholder-640x360.png" alt="STATE System data interface placeholder" loading="lazy" />
           <div class="project-card-body">
-            <h3>CDC Office on Smoking and Health — Web Application Modernization &amp; UAT Testing</h3>
-            <div class="project-meta">Federal Public Health · UAT &amp; Content Governance</div>
+            <h3>STATE System—UAT for Commercial Tobacco Surveillance</h3>
+            <div class="project-meta">Federal Public Health · Data QA &amp; UAT</div>
             <p class="project-summary">
-              Coordinated and executed UAT across STATE System, GTSS Explorer, and MCRC to ensure accurate data, coherent IA, and reliable workflows ahead of relaunch.
+              Verified that backend data matched filterable modules, metadata was accurate, and map visualizations functioned correctly.
             </p>
             <details>
               <summary>Read more</summary>
-              <p><strong>Problem</strong><br/>
-                OSH manages several public-facing platforms—<em>STATE System</em>, <em>GTSS Explorer</em>, and the <em>Media Campaign Resource Center (MCRC)</em>. Over time, content structures, tagging, and backend tools diverged, creating maintenance challenges. Data visualizations risked inaccuracies when underlying data mismatched, and the MCRC’s Microsoft Dynamics–powered catalog and inventory system showed inconsistencies between public and admin interfaces. Prior to modernization and relaunch, OSH needed comprehensive UAT, IA review, and refreshed support documentation.
-              </p>
-              <p><strong>Solution</strong><br/>
-                Led UAT across multiple OSH applications. For the <em>STATE System</em>, validated landing pages, data filters, and cessation modules for accuracy and cross-view consistency. For <em>MCRC</em>, tested both the public catalog search used by health professionals and the admin-side inventory/processing in Microsoft Dynamics. Rewrote MCRC help pages to guide users through the updated interface. More broadly, updated landing and non-application content pages to align IA, tagging, and metadata with accessibility, SEO, and plain language standards.
-              </p>
-              <p><strong>Impact</strong><br/>
-                Supported successful relaunch of modernized OSH applications, strengthening access to reliable state and global tobacco data and enabling professionals to search, order, and track anti-tobacco campaign materials with confidence. Revised help documentation reduced confusion during MCRC relaunch, while corrected tagging and metadata improved governance and site search across CDC.gov. Iterative UAT cycles aligned technical functionality with content strategy, delivering trusted, user-friendly resources for the public and internal staff.
-              </p>
+              <ul>
+                <li>Executed test cases across filters, views, and export paths.</li>
+                <li>Logged discrepancies and collaborated on fixes to acceptance.</li>
+                <li>Spot-checked labels, units, and source notes for clarity.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- MCRC UAT -->
+        <article class="project-card">
+          <img src="assets/placeholder-640x360.png" alt="MCRC catalog interface placeholder" loading="lazy" />
+          <div class="project-card-body">
+            <h3>Media Campaign Resource Center (MCRC)—Catalog &amp; Admin UAT</h3>
+            <div class="project-meta">Federal Public Health · Catalog QA &amp; Workflow</div>
+            <p class="project-summary">
+              Performed UAT on the customer catalog search experience and the admin order intake/processing workflow.
+            </p>
+            <details>
+              <summary>Read more</summary>
+              <ul>
+                <li>Checked search parameters, result relevance, and pagination.</li>
+                <li>Validated order form fields, states, and submission handling.</li>
+                <li>Reviewed metadata fields and asset previews for consistency.</li>
+              </ul>
             </details>
           </div>
         </article>
@@ -186,7 +202,7 @@
           </div>
         </article>
 
-        <!-- Documentary & Research (no university teaching section included) -->
+        <!-- Documentary work (kept general; no university teaching references) -->
         <article class="project-card">
           <img src="assets/placeholder-640x360.png" alt="Documentary and research materials placeholder" loading="lazy" />
           <div class="project-card-body">
